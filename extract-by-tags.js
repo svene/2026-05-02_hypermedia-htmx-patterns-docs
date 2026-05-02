@@ -1,95 +1,107 @@
-export default function extractByTags(content, tagConfig, delimiter = '...') {
+export default function extractByTags(content, allowedTags, delimiter = '...') {
   const lines = content.split('\n');
-
-  const tagSet = new Set(Object.keys(tagConfig));
+  const tagSet = new Set(allowedTags);
 
   const startRegex = /^(\s*)\/\/\s*docs:start\s+(.+)$/;
   const endRegex = /^\s*\/\/\s*docs:end\s+(.+)$/;
   const inlineRegex = /\/\/\s*docs:\s*(\S+)\s*$/;
 
+  let blocks = []; // collect blocks first
   let active = null;
   let baseIndent = '';
-  let result = [];
-  let hasStartedOutput = false;
+  let currentBlock = null;
 
+  // -------------------------
+  // PASS 1: collect blocks
+  // -------------------------
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // -------------------------
-    // INLINE TAG
-    // -------------------------
+    // INLINE
     const inlineMatch = line.match(inlineRegex);
     if (inlineMatch) {
       const tag = inlineMatch[1];
 
       if (tagSet.has(tag)) {
-        if (hasStartedOutput) {
-          result.push(delimiter);
-        }
-
         const indentMatch = line.match(/^(\s*)/);
-        const inlineIndent = indentMatch ? indentMatch[1] : '';
+        const indent = indentMatch ? indentMatch[1] : '';
 
         let cleaned = line.replace(/\s*\/\/\s*docs:\s*\S+\s*$/, '');
 
-        if (cleaned.startsWith(inlineIndent)) {
-          cleaned = cleaned.slice(inlineIndent.length);
-        }
-
-        const finalLine = tagConfig[tag] + cleaned.trimEnd();
-
-        result.push(finalLine);
-        hasStartedOutput = true;
+        blocks.push({
+          indent,
+          lines: [cleaned],
+        });
       }
-
       continue;
     }
 
-    // -------------------------
-    // BLOCK START
-    // -------------------------
+    // START
     const startMatch = line.match(startRegex);
     if (startMatch) {
       const tag = startMatch[2];
 
       if (tagSet.has(tag)) {
-        if (hasStartedOutput) {
-          result.push(delimiter);
-        }
-
         active = tag;
         baseIndent = startMatch[1];
-        hasStartedOutput = true;
+        currentBlock = {
+          indent: baseIndent,
+          lines: [],
+        };
       }
-
       continue;
     }
 
-    // -------------------------
-    // BLOCK END
-    // -------------------------
+    // END
     const endMatch = line.match(endRegex);
     if (endMatch) {
       const tag = endMatch[1];
-      if (active === tag) active = null;
+
+      if (active === tag && currentBlock) {
+        blocks.push(currentBlock);
+        currentBlock = null;
+        active = null;
+      }
       continue;
     }
 
-    // -------------------------
-    // COLLECT BLOCK CONTENT
-    // -------------------------
-    if (active) {
+    // COLLECT
+    if (active && currentBlock) {
       let cleaned = line;
 
       if (cleaned.startsWith(baseIndent)) {
         cleaned = cleaned.slice(baseIndent.length);
       }
 
-      const finalLine = tagConfig[active] + cleaned;
-
-      result.push(finalLine);
+      currentBlock.lines.push(cleaned);
     }
   }
+
+  if (blocks.length === 0) return '';
+
+  // -------------------------
+  // PASS 2: find minimum indent
+  // -------------------------
+  const minIndentLength = Math.min(
+    ...blocks.map(b => b.indent.length)
+  );
+
+  // -------------------------
+  // PASS 3: build result
+  // -------------------------
+  const result = [];
+
+  blocks.forEach((block, index) => {
+    if (index > 0) {
+      result.push(delimiter);
+    }
+
+    const relativeIndent = block.indent.slice(minIndentLength);
+
+    for (let line of block.lines) {
+      result.push(relativeIndent + line);
+    }
+  });
 
   return result.join('\n').trim();
 }
