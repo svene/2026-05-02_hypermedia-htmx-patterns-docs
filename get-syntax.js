@@ -11,9 +11,9 @@ export default function getSyntax(contentType) {
     case 'jte':
     case 'thymeleaf':
       return {
-        start: /<!--\s*docs:start\s+(.+?)\s*-->/,
-        end: /<!--\s*docs:end\s+(.+?)\s*-->/,
-        inline: /<!--\s*docs:\s*(\S+)\s*-->/
+        start: /^(\s*)<!--\s*docs:start\s+(.+?)\s*-->$/,
+        end: /^\s*<!--\s*docs:end\s+(.+?)\s*-->$/,
+        inline: /^(\s*)<!--\s*docs:\s*(\S+)\s*-->$/
       };
 
     default:

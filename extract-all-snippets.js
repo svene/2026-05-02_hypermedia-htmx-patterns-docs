@@ -12,15 +12,8 @@ function main() {
   const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
   const outRoot = 'src/snippets';
 
-  const name = 'PlainJTEController';
-  //   processSnippet(
-  //   `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/${name}.java`,
-  //   ['class', 'page01'],
-  //   snippetToCodeBlock(`java title="${name}.java"`),
-  //   `${outRoot}/${name}_page01.mdx`,
-  //   '...'
-  // );
-
+  let name = 'PlainJTEController';
+  
   processSnippet(
     `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/${name}.java`,
     {
@@ -31,6 +24,21 @@ function main() {
       delimiter: '...'
     }
   );
+
+  name = 'page01';
+  processSnippet(
+    `${srcRoot}/src/main/java/jte/plainjte/page01.jte`,
+    {
+      allowedTags: ['page01'],
+      contentType: 'jte',
+      transformFn: snippetToCodeBlock(`html title="${name}.jte"`),
+      outFile: `${outRoot}/${name}_page01.mdx`,
+      delimiter: '...'
+    }
+  );
+
+
+
 }
 
 main();
