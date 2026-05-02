@@ -1,9 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+	vite: {
+    	resolve: {
+      		alias: {
+				'@components': path.resolve(__dirname, './src/components'),
+				'@snippets': path.resolve(__dirname, './src/snippets'),
+        		'@app': path.resolve('../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx'),
+      	},
+    },
+  },
 	integrations: [
 		starlight({
 			title: 'Server Side Frontend Patterns - with plain JTE and ViewComponents',
