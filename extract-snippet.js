@@ -1,42 +1,100 @@
 import fs from 'fs';
 import path from 'path';
 
-function extractByTag(content, tag) {
+export function extractByTags(content, allowedTags, delimiter = '') {
   const lines = content.split('\n');
+  const tagSet = new Set(allowedTags);
 
-  let start = -1;
-  let end = -1;
+  const startRegex = /^(\s*)\/\/\s*docs:start\s+(.+)$/;
+  const endRegex = /^\s*\/\/\s*docs:end\s+(.+)$/;
+  const inlineRegex = /\/\/\s*docs:\s*(\S+)\s*$/;
+
+  let active = null;
   let indent = '';
+  let result = [];
+  let hasStartedOutput = false;
 
   for (let i = 0; i < lines.length; i++) {
-    const m = lines[i].match(/^(\s*)\/\/\s*docs:start\s+(.+)$/);
-    if (m && m[2] === tag) {
-      start = i + 1;
-      indent = m[1];
-      break;
+    const line = lines[i];
+
+    // -------------------------
+    // INLINE TAG (single line)
+    // -------------------------
+    const inlineMatch = line.match(inlineRegex);
+if (inlineMatch) {
+  const tag = inlineMatch[1];
+
+  if (tagSet.has(tag)) {
+    if (hasStartedOutput) {
+      result.push(delimiter);
     }
+
+    // capture indentation
+    const indentMatch = line.match(/^(\s*)/);
+    const inlineIndent = indentMatch ? indentMatch[1] : '';
+
+    // remove trailing docs comment
+    let cleaned = line.replace(/\s*\/\/\s*docs:\s*\S+\s*$/, '');
+
+    // normalize indentation (same idea as block mode)
+    if (cleaned.startsWith(inlineIndent)) {
+      cleaned = cleaned.slice(inlineIndent.length);
+    }
+
+    result.push(cleaned.trimEnd());
+
+    hasStartedOutput = true;
   }
 
-  for (let i = start; i < lines.length; i++) {
-    const m = lines[i].match(/^\s*\/\/\s*docs:end\s+(.+)$/);
-    if (m && m[1] === tag) {
-      end = i;
-      break;
-    }
-  }
-
-  if (start === -1 || end === -1) return '';
-
-  return lines
-    .slice(start, end)
-    .map(line => line.startsWith(indent) ? line.slice(indent.length) : line)
-    .join('\n')
-    .trim();
+  continue;
 }
 
-export function extractSnippetFromFile(filePath, tag, outFile) {
+    // -------------------------
+    // BLOCK START
+    // -------------------------
+    const startMatch = line.match(startRegex);
+    if (startMatch) {
+      const tag = startMatch[2];
+
+      if (tagSet.has(tag)) {
+        if (hasStartedOutput) {
+          result.push(delimiter);
+        }
+
+        active = tag;
+        indent = startMatch[1];
+        hasStartedOutput = true;
+      }
+
+      continue;
+    }
+
+    // -------------------------
+    // BLOCK END
+    // -------------------------
+    const endMatch = line.match(endRegex);
+    if (endMatch) {
+      const tag = endMatch[1];
+      if (active === tag) active = null;
+      continue;
+    }
+
+    // -------------------------
+    // COLLECT BLOCK CONTENT
+    // -------------------------
+    if (active) {
+      result.push(
+        line.startsWith(indent) ? line.slice(indent.length) : line
+      );
+    }
+  }
+
+  return result.join('\n').trim();
+}
+
+export function extractSnippetFromFile(filePath, tags, outFile) {
   const content = fs.readFileSync(filePath, 'utf-8');
-  const snippet = extractByTag(content, tag);
+  const snippet = extractByTag(content, tags);
 
   if (!snippet) {
     console.error(`Tag "${tag}" not found in ${filePath}`);
@@ -60,10 +118,10 @@ export function writeSnippet(outputPath, content) {
   console.log(`Created: ${outputPath}`);
 }
 
-export function processSnippet(filePath, tag, transformFn, outFile) {
+export function processSnippet(filePath, tags, transformFn, outFile) {
   const content = fs.readFileSync(filePath, 'utf-8');
 
-  const snippet = extractByTag(content, tag);
+  const snippet = extractByTags(content, tags);
 
   if (!snippet) {
     console.error(`Tag "${tag}" not found in ${filePath}`);

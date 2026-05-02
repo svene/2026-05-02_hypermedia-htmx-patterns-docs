@@ -15,7 +15,7 @@ function main() {
   const name = 'PlainJTEController';
   processSnippet(
   `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/${name}.java`,
-  'page01',
+  ['class', 'page01'],
   snippetToCodeBlock(`java title="${name}.java"`),
   `${outRoot}/${name}_page01.mdx`
 );
