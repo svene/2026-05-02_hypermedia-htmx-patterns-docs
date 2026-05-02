@@ -3,7 +3,11 @@ title: Using plain JTE files
 description: Simple Pages using plain JTE files
 ---
 
-import PlainJTEControllerPage01 from '@snippets/PlainJTEController_page01.mdx'
+import Page01Java from '@snippets/page01_java.mdx'
+import Page01JTE from '@snippets/page01_jte.mdx'
+
+import Page02Java from '@snippets/page02_java.mdx'
+import Page02JTE from '@snippets/page02_jte.mdx'
 
 
 
@@ -16,27 +20,16 @@ made using a JTE template.
 
 [Demo](http://localhost:8081/page01)
 
-<PlainJTEControllerPage01/>
-
-```java title="PlainJTEController.java"
-@Controller
-public class PlainJTEController {
-  public static final String PAGE_01_URL = "/page01";
-
-  @GetMapping(PAGE_01_URL)
-  public String p1() {
-    return "jte/plainjte/page01";
-  }
-}
-```
-
-```html title="page01.jte"
-<h1>Application Page</h1>
-```
+<Page01Java/>
+<Page01JTE/>
 
 ## 2. Basic Page using a JTE component
 
 [Demo](http://localhost:8081/page02withcomponent)
+
+<Page02Java/>
+<Page02JTE/>
+
 
 ```java title="PlainJTEController.java"
 @Controller

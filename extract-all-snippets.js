@@ -12,28 +12,45 @@ function main() {
   const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
   const outRoot = 'src/snippets';
 
-  let name = 'PlainJTEController';
-  
+  // Page01:
   processSnippet(
-    `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/${name}.java`,
+    `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/PlainJTEController.java`,
     {
       allowedTags: ['class', 'page01'],
-      contentType: 'java',
-      transformFn: snippetToCodeBlock(`java title="${name}.java"`),
-      outFile: `${outRoot}/${name}_page01.mdx`,
-      delimiter: '...'
+      transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`),
+      outFile: `${outRoot}/page01_java.mdx`,
+      delimiter: ' '
     }
   );
 
-  name = 'page01';
   processSnippet(
     `${srcRoot}/src/main/java/jte/plainjte/page01.jte`,
     {
       allowedTags: ['page01'],
-      contentType: 'jte',
-      transformFn: snippetToCodeBlock(`html title="${name}.jte"`),
-      outFile: `${outRoot}/${name}_page01.mdx`,
-      delimiter: '...'
+      transformFn: snippetToCodeBlock(`html title="page01.jte"`),
+      outFile: `${outRoot}/page01_jte.mdx`,
+      delimiter: ' '
+    }
+  );
+
+  // Page02:
+  processSnippet(
+    `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/PlainJTEController.java`,
+    {
+      allowedTags: ['class', 'page02'],
+      transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`),
+      outFile: `${outRoot}/page02_java.mdx`,
+      delimiter: ' '
+    }
+  );
+
+  processSnippet(
+    `${srcRoot}/src/main/java/jte/plainjte/page02withcomponent.jte`,
+    {
+      allowedTags: ['page02'],
+      transformFn: snippetToCodeBlock(`html title="page02withcomponent.jte"`),
+      outFile: `${outRoot}/page02_jte.mdx`,
+      delimiter: ' '
     }
   );
 

@@ -84,7 +84,7 @@ export default function extractByTags(content, options) {
     const result = [];
 
     blocks.forEach((block, index) => {
-        if (index > 0) {
+        if (index > 0 && delimiter) {
             result.push(delimiter);
         }
 
