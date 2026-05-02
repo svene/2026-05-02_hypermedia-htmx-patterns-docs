@@ -6,12 +6,16 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Server Side Frontend Patterns - with plain JTE and ViewComponents',
 			customCss: [
         		'./src/styles/custom.css',
       		],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
+				{
+					label: 'Simple Pages',
+					autogenerate: { directory: 'demos' },
+				},
 				{
 					label: 'Guides',
 					items: [
