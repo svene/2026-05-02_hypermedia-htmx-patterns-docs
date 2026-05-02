@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import extractByTags from './extract-by-tags.js';
 
-export function extractByTags(content, allowedTags, delimiter = '') {
+export function extractByTags0(content, allowedTags, delimiter = '') {
   const lines = content.split('\n');
   const tagSet = new Set(allowedTags);
 
@@ -94,7 +95,7 @@ if (inlineMatch) {
 
 export function extractSnippetFromFile(filePath, tags, outFile) {
   const content = fs.readFileSync(filePath, 'utf-8');
-  const snippet = extractByTag(content, tags);
+  const snippet = extractByTags(content, tags);
 
   if (!snippet) {
     console.error(`Tag "${tag}" not found in ${filePath}`);
@@ -118,13 +119,13 @@ export function writeSnippet(outputPath, content) {
   console.log(`Created: ${outputPath}`);
 }
 
-export function processSnippet(filePath, tags, transformFn, outFile) {
+export function processSnippet(filePath, tagConfig, transformFn, outFile, delimiter) {
   const content = fs.readFileSync(filePath, 'utf-8');
 
-  const snippet = extractByTags(content, tags);
+  const snippet = extractByTags(content, tagConfig, delimiter);
 
   if (!snippet) {
-    console.error(`Tag "${tag}" not found in ${filePath}`);
+    console.error(`Could not create snippet for ${filePath}`);
     return;
   }
 
