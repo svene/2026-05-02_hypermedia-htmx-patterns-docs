@@ -6,18 +6,29 @@ export function writeSnippet(outputPath, content) {
   console.log(`Created: ${outputPath}`);
 }
 
-export function processSnippet(filePath, tagConfig, transformFn, outFile, delimiter) {
+export function processSnippet(filePath, options) {
+  const {
+    allowedTags,
+    contentType,
+    transformFn,
+    outFile,
+    delimiter = '...'
+  } = options;
+
   const content = fs.readFileSync(filePath, 'utf-8');
 
-  const snippet = extractByTags(content, tagConfig, delimiter);
+  const snippet = extractByTags(content, {
+    allowedTags,
+    contentType,
+    delimiter
+  });
 
   if (!snippet) {
     console.error(`Could not create snippet for ${filePath}`);
     return;
   }
 
-  // 👇 callback transformation step
-  const transformed = transformFn(snippet);
+  const transformed = transformFn ? transformFn(snippet) : snippet;
 
   if (!outFile) {
     throw new Error('outFile must be provided');

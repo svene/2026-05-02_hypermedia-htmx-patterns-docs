@@ -1,4 +1,12 @@
-export default function extractByTags(content, allowedTags, delimiter = '...') {
+export default function extractByTags(content, options) {
+const {
+    allowedTags,
+    contentType,
+    transformFn,
+    outFile,
+    delimiter = '...'
+  } = options;
+
   const lines = content.split('\n');
   const tagSet = new Set(allowedTags);
 
