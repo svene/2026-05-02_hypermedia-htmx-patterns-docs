@@ -1,7 +1,10 @@
 import fs from 'fs';
+import path from 'path';
+
 import extractByTags from './extract-by-tags.js';
 
 export function writeSnippet(outputPath, content) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, content, 'utf-8');
   console.log(`Created: ${outputPath}`);
 }
@@ -12,7 +15,7 @@ export function processSnippet(filePath, options) {
     contentType,
     transformFn,
     outFile,
-    delimiter = '...'
+    delimiter = '<BR>'
   } = options;
 
   const content = fs.readFileSync(filePath, 'utf-8');

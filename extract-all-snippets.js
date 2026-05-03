@@ -19,7 +19,6 @@ function main() {
       allowedTags: ['class', 'page01'],
       transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`),
       outFile: `${outRoot}/page01_java.mdx`,
-      delimiter: ' '
     }
   );
 
@@ -50,6 +49,16 @@ function main() {
       allowedTags: ['page02'],
       transformFn: snippetToCodeBlock(`html title="page02withcomponent.jte"`),
       outFile: `${outRoot}/page02_jte.mdx`,
+      delimiter: ' '
+    }
+  );
+
+  processSnippet(
+    `${srcRoot}/src/main/java/jte/components/helloworld.jte`,
+    {
+      allowedTags: ['helloworld'],
+      transformFn: snippetToCodeBlock(`html title="helloworld.jte"`),
+      outFile: `${outRoot}/components/helloworld_jte.mdx`,
       delimiter: ' '
     }
   );
