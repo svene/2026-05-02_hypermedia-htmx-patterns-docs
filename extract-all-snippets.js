@@ -28,7 +28,6 @@ function main() {
       allowedTags: ['page01'],
       transformFn: snippetToCodeBlock(`html title="page01.jte"`),
       outFile: `${outRoot}/page01_jte.mdx`,
-      delimiter: ' '
     }
   );
 
@@ -39,7 +38,6 @@ function main() {
       allowedTags: ['class', 'page02'],
       transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`),
       outFile: `${outRoot}/page02_java.mdx`,
-      delimiter: ' '
     }
   );
 
@@ -49,7 +47,6 @@ function main() {
       allowedTags: ['page02'],
       transformFn: snippetToCodeBlock(`html title="page02withcomponent.jte"`),
       outFile: `${outRoot}/page02_jte.mdx`,
-      delimiter: ' '
     }
   );
 
@@ -59,7 +56,6 @@ function main() {
       allowedTags: ['helloworld'],
       transformFn: snippetToCodeBlock(`html title="helloworld.jte"`),
       outFile: `${outRoot}/components/helloworld_jte.mdx`,
-      delimiter: ' '
     }
   );
 

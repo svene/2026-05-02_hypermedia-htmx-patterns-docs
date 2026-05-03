@@ -28,8 +28,6 @@ export default function extractByTags(content, options) {
                 active = tag;
                 currentBlock = { lines: [] };
 
-                // optional: include line instead of dropping
-                // currentBlock.lines.push(line);
                 if (trimmed !== marker) {
                     const nl = removeInlineComment(line);
                     if (nl.trim().length > 0) {
@@ -76,7 +74,6 @@ export default function extractByTags(content, options) {
 
         // -------- CONTENT --------
         if (active && currentBlock) {
-            // IMPORTANT: preserve raw line exactly as-is
             currentBlock.lines.push(line);
         }
     }
@@ -94,7 +91,6 @@ export default function extractByTags(content, options) {
     );
     const indent = " ".repeat(minLeadingSpaces);
 
-    // const normalizedBlocks = blocks.map(block => normalizeBlock(block.lines));
     const normalizedBlocks = normalizeIndent(blocks, minLeadingSpaces);
 
     const result = [];
@@ -124,41 +120,6 @@ function normalizeIndent(blocks, minLeadingSpaces) {
       line.replace(pattern, "")
     )
   }));
-}
-
-
-/**
- * Proper dedent:
- * - finds minimum indentation among NON-empty lines
- * - removes only shared leading whitespace
- * - preserves relative indentation inside code blocks
- */
-function normalizeBlock(lines) {
-    const cleaned = lines.filter(l => typeof l === 'string');
-
-    if (cleaned.length === 0) return [];
-
-    // ONLY consider non-empty lines for indentation calculation
-    const indentedLines = cleaned.filter(l => l.trim().length > 0);
-
-    if (indentedLines.length === 0) return cleaned;
-
-    const minIndent = Math.min(
-        ...indentedLines.map(line => {
-            let i = 0;
-            while (i < line.length && (line[i] === ' ' || line[i] === '\t')) {
-                i++;
-            }
-            return i;
-        })
-    );
-
-    return cleaned.map(line => {
-        // preserve empty/whitespace-only lines exactly
-        if (line.trim().length === 0) return '';
-
-        return line.slice(minIndent);
-    });
 }
 
 

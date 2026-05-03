@@ -32,31 +32,6 @@ made using a JTE template.
 <Page02JTE/>
 <HelloWorld/>
 
-
-```java title="PlainJTEController.java"
-@Controller
-public class PlainJTEController {
-  public static final String PAGE_02_WITH_COMPONENT_URL = "/page02withcomponent";
-
-  @GetMapping(PAGE_02_WITH_COMPONENT_URL)
-  public String p2() {
-    return "jte/plainjte/page02withcomponent";
-  }
-}
-```
-
-```html title="page02withcomponent.jte"
-<h1>Page with Component</h1>
-
-<!-- Include Component: -->
-@template.jte.components.helloworld()
-```
-
-```html title="helloworld.jte"
-<h3>Hello world!</h3>
-```
-
-
 ## 3. Page and Component with Parameters
 
 When page and/or component need parameters
