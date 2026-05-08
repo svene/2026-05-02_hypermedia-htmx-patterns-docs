@@ -1,0 +1,15 @@
+
+```java title="PlainJTEController.java"
+@Controller
+public class PlainJTEController {
+
+  public static final String PAGE_03_WITH_PARAMS_COMPONENT_URL = "/page03withparamscomponent";
+
+  @GetMapping(PAGE_03_WITH_PARAMS_COMPONENT_URL)
+  public String p3(Model model) {
+    model.addAttribute("greetee", "You");
+    return "jte/plainjte/page03withparamscomponent";
+  }
+
+}
+```

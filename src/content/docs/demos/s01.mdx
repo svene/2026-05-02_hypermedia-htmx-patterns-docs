@@ -10,6 +10,17 @@ import Page02Java from '@snippets/page02_java.mdx'
 import Page02JTE from '@snippets/page02_jte.mdx'
 
 import HelloWorld from '@snippets/components/helloworld_jte.mdx'
+import HelloWorldParams from '@snippets/components/helloworldparams_jte.mdx'
+import HelloWorldContent from '@snippets/components/helloworldcontent_jte.mdx'
+
+import Page03Java from '@snippets/page03_java.mdx'
+import Page03JTE from '@snippets/page03_jte.mdx'
+
+import Page04Java from '@snippets/page04_java.mdx'
+import Page04JTE from '@snippets/page04_jte.mdx'
+
+import Page05Java from '@snippets/page05_java.mdx'
+import Page05JTE from '@snippets/page05_jte.mdx'
 
 
 For basic usecases. Needs a spring-controller.
@@ -38,43 +49,9 @@ When page and/or component need parameters
 
 [Demo](http://localhost:8081/page03withparamscomponent)
 
-```java title="PlainJTEController.java"
-@Controller
-public class PlainJTEController {
-  public static final String PAGE_03_WITH_PARAMS_COMPONENT_URL = "/page03withparamscomponent";
-
-  @GetMapping(PAGE_03_WITH_PARAMS_COMPONENT_URL)
-	public String p3(Model model) {
-		model.addAttribute("greetee", "You");
-		return "jte/plainjte/page03withparamscomponent";
-	}
-}
-```
-
-```html title="page03withparamscomponent.jte"
-<%-- from model, passed by controller: --%>
-@param String greetee
-
-<h1>Page with Params-Component</h1>
-
-<%--
-First parameter passed literally from this template.
-Second parameter coming in from controller through Model
-and passed to included template:
---%>
-@template.jte.components.helloworldparams(
-  greeting = "Hey", // <=== literal parameter
-  greetee = greetee   // <=== model parameter
-)
-```
-
-```html title="helloworldparams.jte"
-@param String greeting = "Hello"
-@param String greetee = "World"
-
-<h3>${greeting} ${greetee}!</h3>
-```
-
+<Page03Java/>
+<Page03JTE/>
+<HelloWorldParams/>
 
 ## 4. Content parameter
 
@@ -84,40 +61,9 @@ When HTML needs to be passed into component
 
 [Demo](http://localhost:8081/page04withcontentparamscomponent)
 
-```java title="PlainJTEController.java"
-@Controller
-public class PlainJTEController {
-  public static final String PAGE_04_WITH_CONTENT_PARAMS_COMPONENT_URL = "/page04withcontentparamscomponent";
-
-  @GetMapping(PAGE_04_WITH_CONTENT_PARAMS_COMPONENT_URL)
-	public String p4() {
-		return "jte/plainjte/page04withcontentparamscomponent";
-	}
-}
-```
-
-```html title="page04withcontentparamscomponent.jte"
-<%-- from model, passed by controller: --%>
-<h1>Page with ContentParams-Component</h1>
-
-@template.jte.components.helloworldcontent(
-  greetingText = @` <%-- include HTML content --%>
-    How are you?<br>
-    Hopefully <strong>very well</strong>.<br>
-    <p>See you soon!</p>
-`
-)
-```
-
-```html title="helloworldcontent.jte"
-@param gg.jte.Content greetingText = @``
-<div class="area-border">
-<p>Hi there!</p>
-${greetingText}
-</div>
-
-```
-
+<Page04Java/>
+<Page04JTE/>
+<HelloWorldContent/>
 
 ## 5. Nested components
 
@@ -127,39 +73,7 @@ When you need components in content-parameters
 
 [Demo](http://localhost:8081/page05withnestedcomponents)
 
-```java title="PlainJTEController.java"
-@Controller
-public class PlainJTEController {
-  public static final String PAGE_05_WITH_NESTED_COMPONENTS_URL = "/page05withnestedcomponents";
-
-  @GetMapping(PAGE_05_NESTED_URL)
-  public String appPageNested() {
-    return "jte/plainjte/page05withnestedcomponents";
-  }
-}
-```
-
-```html title="page05withnestedcomponents.jte"
-<h1>Page with Nested Components</h1>
-
-@template.jte.components.helloworldcontent(
-  greetingText = @` <%-- Outer template --%>
-    <p>before nested content</p>
-    @template.jte.components.helloworldcontent(
-      greetingText = @` <%-- Nested template --%>
-        <p>NESTED CONTENT</p>
-    `)
-    <p>after nested content</p>
-  `)
-```
-
-```html title="helloworldcontent.jte"
-@param gg.jte.Content greetingText = @``
-<div>
-<p>Hi there!</p>
-${greetingText}
-</div>
-
-```
-
+<Page05Java/>
+<Page05JTE/>
+<HelloWorldContent/>
 

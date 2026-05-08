@@ -131,13 +131,14 @@ function removeInlineComment(line) {
 
     const slashIdx = before.lastIndexOf('//');
     const htmlIdx = before.lastIndexOf('<!--');
+    const jteIdx = before.lastIndexOf('<%--');
 
     let cutIdx = -1;
 
     if (slashIdx !== -1 && htmlIdx !== -1) {
-        cutIdx = Math.max(slashIdx, htmlIdx);
+        cutIdx = Math.max(slashIdx, htmlIdx, jteIdx);
     } else {
-        cutIdx = slashIdx !== -1 ? slashIdx : htmlIdx;
+        cutIdx = slashIdx !== -1 ? slashIdx : htmlIdx !== -1 ? htmlIdx : jteIdx;
     }
 
     if (cutIdx === -1) cutIdx = docsIdx;
