@@ -149,6 +149,24 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldContent.jte"`), outFile: `${outRoot}/s02p04_component_jte.mdx` }
   );
 
+  // S02P05:
+  processSnippet(
+    `${s02Root}/page05withnestedcomponents/PageWithNestedComponents.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithNestedComponents.java"`), outFile: `${outRoot}/s02p05_java.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page05withnestedcomponents/PageWithNestedComponents.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithNestedComponents.jte"`), outFile: `${outRoot}/s02p05_jte.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page05withnestedcomponents/HelloWorldNestedComponents.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldNestedComponents.java"`), outFile: `${outRoot}/s02p05_component_java.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page05withnestedcomponents/HelloWorldNestedComponents.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldNestedComponents.jte"`), outFile: `${outRoot}/s02p05_component_jte.mdx` }
+  );
+
 
 }
 
