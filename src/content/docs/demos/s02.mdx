@@ -1,0 +1,80 @@
+---
+title: Using View Components
+description: Simple Pages using plain JTE files
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+import P01Java from '@snippets/s02p01_java.mdx'
+import P01JTE from '@snippets/s02p01_jte.mdx'
+
+import P02Java from '@snippets/s02p02_java.mdx'
+import P02JTE from '@snippets/s02p02_jte.mdx'
+import P02HelloWorldJava from '@snippets/s02p02_helloworld_java.mdx'
+import P02HelloWorldJTE from '@snippets/s02p02_helloworld_jte.mdx'
+
+
+
+For usecases with business logic. VCs combine JTE and Code in pairs. 
+
+## 1. Basic View Component Page
+
+Implemented as View Component.
+
+Use case: Top-Level Page
+
+<P01Java/>
+<P01JTE/>
+
+<Aside>
+Note that Components which are accessed by URL (like this one)
+are also Controllers.
+The alternative would be a controller dispatching to the various components.
+But that approach is not recommended.
+</Aside>
+
+[Demo](http://localhost:8081/ui/demos/simplevc/page)
+
+## 2. VC Page with Component
+
+VC Page using another View Component.
+
+Use case: Top-Level Page
+
+<P02Java/>
+<P02JTE/>
+<P02HelloWorldJava/>
+<P02HelloWorldJTE/>
+
+[Demo](http://localhost:8081/ui/demos/simplevc/pagewithcomponent)
+
+## 3. Basic VC Page
+
+With parameters.
+
+Use case: when page and/or component need parameters
+
+...
+
+[Demo](http://localhost:8081/ui/demos/simplevc/page)
+
+## 4. Content parameter
+
+passed from page to component.
+
+Use case: When HTML needs to be passed into component
+
+...
+
+[Demo](http://localhost:8081/ui/demos/simplevc/page)
+
+## 5. Nested components
+
+also known as: template in template
+
+Use case: If you need components in content-parameters
+
+...
+
+[Demo](http://localhost:8081/ui/demos/simplevc/page)
+
