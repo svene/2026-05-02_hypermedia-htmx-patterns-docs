@@ -10,7 +10,7 @@ ${snippet}
 
 function main() {
   const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
-  const outRoot = 'src/snippets';
+  const outRoot = 'generated/snippets';
 
 
   let javaController = `${srcRoot}/src/main/java/org/svenehrke/demo/web/p01plainjte/PlainJTEController.java`;
