@@ -7,3 +7,7 @@
 ````bash
 npm run extract-snippets
 ````
+
+````bash
+npm run dev
+````
