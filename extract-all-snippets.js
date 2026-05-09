@@ -113,6 +113,23 @@ function main() {
   );
 
 
+  // S02P03:
+  processSnippet(
+    `${s02Root}/page03withparamscomponent/PageWithParamsComponent.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithParamsComponent.java"`), outFile: `${outRoot}/s02p03_java.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page03withparamscomponent/PageWithParamsComponent.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithParamsComponent.jte"`), outFile: `${outRoot}/s02p03_jte.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page03withparamscomponent/HelloWorldParams.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldParams.java"`), outFile: `${outRoot}/s02p03_helloworld_params_java.mdx` }
+  );
+  processSnippet(
+    `${s02Root}/page03withparamscomponent/HelloWorldParams.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldParams.jte"`), outFile: `${outRoot}/s02p03_helloworld_params_jte.mdx` }
+  );
 }
 
 main();

@@ -1,0 +1,14 @@
+
+```java title="PageWithParamsComponent.java"
+@ViewComponent
+@Controller
+public class PageWithParamsComponent {
+  public static final String URL = "/ui/demos/simplevc/pagewithparamscomponent";
+  public record Ctx() implements ViewContext {}
+
+  @GetMapping(URL)
+  public Ctx ctx() {
+    return new Ctx();
+  }
+}
+```
