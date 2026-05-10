@@ -87,88 +87,88 @@ function main() {
 
 
   // S02:
-  let s02Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/p02simplevcdemos`;
+  let s02Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s02simplevcdemos`;
   // S02P01:
   processSnippet(
-    `${s02Root}/page01/Page.java`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="Page.java"`), outFile: `${outRoot}/s02p01_java.mdx` }
+    `${s02Root}/s02d01/S02D01.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D01.java"`), outFile: `${outRoot}/s02d01_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page01/Page.jte`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="Page.jte"`), outFile: `${outRoot}/s02p01_jte.mdx` }
+    `${s02Root}/s02d01/S02D01.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D01.jte"`), outFile: `${outRoot}/s02d01_jte.mdx` }
   );
 
   // S02P02:
   processSnippet(
-    `${s02Root}/page02withcomponent/PageWithComponent.java`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithComponent.java"`), outFile: `${outRoot}/s02p02_java.mdx` }
+    `${s02Root}/s02d02/S02D02.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D02.java"`), outFile: `${outRoot}/s02d02_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page02withcomponent/PageWithComponent.jte`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithComponent.jte"`), outFile: `${outRoot}/s02p02_jte.mdx` }
+    `${s02Root}/s02d02/S02D02.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D02.jte"`), outFile: `${outRoot}/s02d02_jte.mdx` }
   );
   processSnippet(
-    `${s02Root}/page02withcomponent/HelloWorld.java`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorld.java"`), outFile: `${outRoot}/s02p02_helloworld_java.mdx` }
+    `${s02Root}/s02d02/HelloWorld.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorld.java"`), outFile: `${outRoot}/s02d02_component_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page02withcomponent/HelloWorld.jte`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorld.jte"`), outFile: `${outRoot}/s02p02_helloworld_jte.mdx` }
+    `${s02Root}/s02d02/HelloWorld.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorld.jte"`), outFile: `${outRoot}/s02d02_component_jte.mdx` }
   );
 
 
   // S02P03:
   processSnippet(
-    `${s02Root}/page03withparamscomponent/PageWithParamsComponent.java`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithParamsComponent.java"`), outFile: `${outRoot}/s02p03_java.mdx` }
+    `${s02Root}/s02d03/S02D03.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D03.java"`), outFile: `${outRoot}/s02d03_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page03withparamscomponent/PageWithParamsComponent.jte`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithParamsComponent.jte"`), outFile: `${outRoot}/s02p03_jte.mdx` }
+    `${s02Root}/s02d03/S02D03.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D03.jte"`), outFile: `${outRoot}/s02d03_jte.mdx` }
   );
   processSnippet(
-    `${s02Root}/page03withparamscomponent/HelloWorldParams.java`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldParams.java"`), outFile: `${outRoot}/s02p03_helloworld_params_java.mdx` }
+    `${s02Root}/s02d03/HelloWorldParams.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldParams.java"`), outFile: `${outRoot}/s02d03_component_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page03withparamscomponent/HelloWorldParams.jte`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldParams.jte"`), outFile: `${outRoot}/s02p03_helloworld_params_jte.mdx` }
+    `${s02Root}/s02d03/HelloWorldParams.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldParams.jte"`), outFile: `${outRoot}/s02d03_component_jte.mdx` }
   );
 
   // S02P04:
   processSnippet(
-    `${s02Root}/page04withcontentparamscomponent/PageWithContentParamsComponent.java`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithContentParamsComponent.java"`), outFile: `${outRoot}/s02p04_java.mdx` }
+    `${s02Root}/s02d04/S02D04.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D04.java"`), outFile: `${outRoot}/s02d04_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page04withcontentparamscomponent/PageWithContentParamsComponent.jte`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithContentParamsComponent.jte"`), outFile: `${outRoot}/s02p04_jte.mdx` }
+    `${s02Root}/s02d04/S02D04.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D04.jte"`), outFile: `${outRoot}/s02d04_jte.mdx` }
   );
   processSnippet(
-    `${s02Root}/page04withcontentparamscomponent/HelloWorldContent.java`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldContent.java"`), outFile: `${outRoot}/s02p04_component_java.mdx` }
+    `${s02Root}/s02d04/HelloWorldContent.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldContent.java"`), outFile: `${outRoot}/s02d04_component_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page04withcontentparamscomponent/HelloWorldContent.jte`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldContent.jte"`), outFile: `${outRoot}/s02p04_component_jte.mdx` }
+    `${s02Root}/s02d04/HelloWorldContent.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldContent.jte"`), outFile: `${outRoot}/s02d04_component_jte.mdx` }
   );
 
   // S02P05:
   processSnippet(
-    `${s02Root}/page05withnestedcomponents/PageWithNestedComponents.java`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="PageWithNestedComponents.java"`), outFile: `${outRoot}/s02p05_java.mdx` }
+    `${s02Root}/s02d05/S02D05.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D05.java"`), outFile: `${outRoot}/s02d05_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page05withnestedcomponents/PageWithNestedComponents.jte`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="PageWithNestedComponents.jte"`), outFile: `${outRoot}/s02p05_jte.mdx` }
+    `${s02Root}/s02d05/S02D05.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D05.jte"`), outFile: `${outRoot}/s02d05_jte.mdx` }
   );
   processSnippet(
-    `${s02Root}/page05withnestedcomponents/HelloWorldNestedComponents.java`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldNestedComponents.java"`), outFile: `${outRoot}/s02p05_component_java.mdx` }
+    `${s02Root}/s02d05/HelloWorldNestedComponents.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="HelloWorldNestedComponents.java"`), outFile: `${outRoot}/s02d05_component_java.mdx` }
   );
   processSnippet(
-    `${s02Root}/page05withnestedcomponents/HelloWorldNestedComponents.jte`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldNestedComponents.jte"`), outFile: `${outRoot}/s02p05_component_jte.mdx` }
+    `${s02Root}/s02d05/HelloWorldNestedComponents.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldNestedComponents.jte"`), outFile: `${outRoot}/s02d05_component_jte.mdx` }
   );
 
 

@@ -5,28 +5,28 @@ description: Simple Pages using plain JTE files
 
 import { Aside } from '@astrojs/starlight/components';
 
-import P01Java from '@snippets/s02p01_java.mdx'
-import P01JTE from '@snippets/s02p01_jte.mdx'
+import S02D01Java from '@snippets/s02d01_java.mdx'
+import S02D01JTE from '@snippets/s02d01_jte.mdx'
 
-import P02Java from '@snippets/s02p02_java.mdx'
-import P02JTE from '@snippets/s02p02_jte.mdx'
-import P02HelloWorldJava from '@snippets/s02p02_helloworld_java.mdx'
-import P02HelloWorldJTE from '@snippets/s02p02_helloworld_jte.mdx'
+import S02D02Java from '@snippets/s02d02_java.mdx'
+import S02D02JTE from '@snippets/s02d02_jte.mdx'
+import S02D02ComponentJava from '@snippets/s02d02_component_java.mdx'
+import S02D02ComponentJTE from '@snippets/s02d02_component_jte.mdx'
 
-import P03PageJava from '@snippets/s02p03_java.mdx'
-import P03PageJTE from '@snippets/s02p03_jte.mdx'
-import P03ComponentJava from '@snippets/s02p03_helloworld_params_java.mdx'
-import P03ComponentJTE from '@snippets/s02p03_helloworld_params_jte.mdx'
+import S02D03Java from '@snippets/s02d03_java.mdx'
+import S02D03JTE from '@snippets/s02d03_jte.mdx'
+import S02D03ComponentJava from '@snippets/s02d03_component_java.mdx'
+import S02D03ComponentJTE from '@snippets/s02d03_component_jte.mdx'
 
-import P04PageJava from '@snippets/s02p04_java.mdx'
-import P04PageJTE from '@snippets/s02p04_jte.mdx'
-import P04ComponentJava from '@snippets/s02p04_component_java.mdx'
-import P04ComponentJTE from '@snippets/s02p04_component_jte.mdx'
+import S02D04Java from '@snippets/s02p04_java.mdx'
+import S02D04JTE from '@snippets/s02d04_jte.mdx'
+import S02D04ComponentJava from '@snippets/s02d04_component_java.mdx'
+import S02D04ComponentJTE from '@snippets/s02d04_component_jte.mdx'
 
-import P05PageJava from '@snippets/s02p05_java.mdx'
-import P05PageJTE from '@snippets/s02p05_jte.mdx'
-import P05ComponentJava from '@snippets/s02p05_component_java.mdx'
-import P05ComponentJTE from '@snippets/s02p05_component_jte.mdx'
+import S02D05Java from '@snippets/s02d05_java.mdx'
+import S02D05JTE from '@snippets/s02d05_jte.mdx'
+import S02D05ComponentJava from '@snippets/s02d05_component_java.mdx'
+import S02D05ComponentJTE from '@snippets/s02d05_component_jte.mdx'
 
 
 For usecases with business logic. VCs combine JTE and Code in pairs. 
@@ -37,8 +37,8 @@ Implemented as View Component.
 
 Use case: Top-Level Page
 
-<P01Java/>
-<P01JTE/>
+<S02D01Java/>
+<S02D01JTE/>
 
 <Aside>
 Note that Components which are accessed by URL (like this one)
@@ -47,7 +47,7 @@ The alternative would be a controller dispatching to the various components.
 But that approach is not recommended.
 </Aside>
 
-[Demo](http://localhost:8081/ui/demos/simplevc/page)
+[Demo](http://localhost:8081/ui/demos/s02simplevcdemos/s02d01)
 
 ## 2. VC Page with Component
 
@@ -55,12 +55,12 @@ VC Page using another View Component.
 
 Use case: Top-Level Page
 
-<P02Java/>
-<P02JTE/>
-<P02HelloWorldJava/>
-<P02HelloWorldJTE/>
+<S02D02Java/>
+<S02D02JTE/>
+<S02D02ComponentJava/>
+<S02D02ComponentJTE/>
 
-[Demo](http://localhost:8081/ui/demos/simplevc/pagewithcomponent)
+[Demo](http://localhost:8081/ui/demos/s02simplevcdemos/s02d02)
 
 ## 3. Parameters
 
@@ -68,12 +68,12 @@ VC Page with parameters.
 
 Use case: when page and/or component need parameters
 
-<P03PageJava/>
-<P03PageJTE/>
-<P03ComponentJava/>
-<P03ComponentJTE/>
+<S02D03Java/>
+<S02D03JTE/>
+<S02D03ComponentJava/>
+<S02D03ComponentJTE/>
 
-[Demo](http://localhost:8081/ui/demos/simplevc/pagewithparamscomponent)
+[Demo](http://localhost:8081/ui/demos/s02simplevcdemos/s02d03)
 
 ## 4. Content parameter
 
@@ -81,12 +81,12 @@ passed from page to component.
 
 Use case: When HTML needs to be passed into component
 
-<P04PageJava/>
-<P04PageJTE/>
-<P04ComponentJava/>
-<P04ComponentJTE/>
+<S02D04Java/>
+<S02D04JTE/>
+<S02D04ComponentJava/>
+<S02D04ComponentJTE/>
 
-[Demo](http://localhost:8081/ui/demos/simplevc/pagewithcontentparamscomponent)
+[Demo](http://localhost:8081/ui/demos/s02simplevcdemos/s02d04)
 
 ## 5. Nested components
 
@@ -94,11 +94,11 @@ also known as: template in template
 
 Use case: If you need components in content-parameters
 
-<P05PageJava/>
-<P05PageJTE/>
-<P05ComponentJava/>
-<P05ComponentJTE/>
+<S02D05Java/>
+<S02D05JTE/>
+<S02D05ComponentJava/>
+<S02D05ComponentJTE/>
 
 
-[Demo](http://localhost:8081/ui/demos/simplevc/pagewithnestedcomponents)
+[Demo](http://localhost:8081/ui/demos/s02simplevcdemos/s02d05)
 
