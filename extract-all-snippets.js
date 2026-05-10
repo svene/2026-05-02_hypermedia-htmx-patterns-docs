@@ -240,6 +240,61 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="MpaLayout.jte"`), outFile: `${outRoot}/s03d04_mpa_layout_jte.mdx` }
   );
 
+  // S04:
+  let s04Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s04uipatterns`;
+
+  // S04D01:
+  processSnippet(
+    `${s04Root}/s04d01/S04D01.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S04D01.java"`), outFile: `${outRoot}/s04d01_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d01/S04D01.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S04D01.jte"`), outFile: `${outRoot}/s04d01_jte.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d01/Parent.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="Parent.java"`), outFile: `${outRoot}/s04d01_parent_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d01/Parent.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="Parent.jte"`), outFile: `${outRoot}/s04d01_parent_jte.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d01/Child.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="Child.java"`), outFile: `${outRoot}/s04d01_child_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d01/Child.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="Child.jte"`), outFile: `${outRoot}/s04d01_child_jte.mdx` }
+  );
+
+  // S04D02:
+  processSnippet(
+    `${s04Root}/s04d02/S04D02.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S04D02.java"`), outFile: `${outRoot}/s04d02_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d02/S04D02.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S04D02.jte"`), outFile: `${outRoot}/s04d02_jte.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d02/First.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="First.java"`), outFile: `${outRoot}/s04d02_first_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d02/First.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="First.jte"`), outFile: `${outRoot}/s04d02_first_jte.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d02/Second.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="Second.java"`), outFile: `${outRoot}/s04d02_second_java.mdx` }
+  );
+  processSnippet(
+    `${s04Root}/s04d02/Second.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="Second.jte"`), outFile: `${outRoot}/s04d02_second_jte.mdx` }
+  );
+
 }
 
 main();

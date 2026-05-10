@@ -3,11 +3,49 @@ title: UI Patterns
 description: TODO
 ---
 
-...
+For reusable UI parts and components
 
-## ...
+import { Aside } from '@astrojs/starlight/components';
 
-...
+import S04D01Java from '@snippets/s04d01_java.mdx'
+import S04D01JTE from '@snippets/s04d01_jte.mdx'
+import S04D01ParentJava from '@snippets/s04d01_parent_java.mdx'
+import S04D01ParentJTE from '@snippets/s04d01_parent_jte.mdx'
+import S04D01ChildJava from '@snippets/s04d01_child_java.mdx'
+import S04D01ChildJTE from '@snippets/s04d01_child_jte.mdx'
 
-[Demo](http://localhost:8081/page01)
+import S04D02Java from '@snippets/s04d02_java.mdx'
+import S04D02JTE from '@snippets/s04d02_jte.mdx'
+import S04D02FirstJava from '@snippets/s04d02_first_java.mdx'
+import S04D02FirstJTE from '@snippets/s04d02_first_jte.mdx'
+import S04D02SecondJava from '@snippets/s04d02_second_java.mdx'
+import S04D02SecondJTE from '@snippets/s04d02_second_jte.mdx'
+
+## 1. Parent Child
+
+Use when:
+
+* a child component has a rather large HTML content
+* a parent component needs to customize a rather small part (or parts) of the child component
+
+
+<S04D01Java/>
+<S04D01JTE/>
+<S04D01ParentJava/>
+<S04D01ParentJTE/>
+<S04D01ChildJava/>
+<S04D01ChildJTE/>
+
+[Demo](http://localhost:8081/ui/s04uipatterns/s04d01)
+
+## 2. Forwarder
+
+<S04D02Java/>
+<S04D02JTE/>
+<S04D02FirstJava/>
+<S04D02FirstJTE/>
+<S04D02SecondJava/>
+<S04D02SecondJTE/>
+
+[Demo](http://localhost:8081/ui/s04uipatterns/s04d02)
 
