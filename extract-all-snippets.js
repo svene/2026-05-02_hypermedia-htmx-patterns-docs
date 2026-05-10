@@ -295,6 +295,28 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="Second.jte"`), outFile: `${outRoot}/s04d02_second_jte.mdx` }
   );
 
+  // S05:
+  let s05Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s05htmxpatterns`;
+
+  // S05D01:
+  processSnippet(
+    `${s05Root}/s05d01/S05D01.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S05D01.java"`), outFile: `${outRoot}/s05d01_java.mdx` }
+  );
+  processSnippet(
+    `${s05Root}/s05d01/S05D01.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S05D01.jte"`), outFile: `${outRoot}/s05d01_jte.mdx` }
+  );
+  processSnippet(
+    `${s05Root}/s05d01/S05D01Message.java`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`java title="S05D01Message.java"`), outFile: `${outRoot}/s05d01_message_java.mdx` }
+  );
+  processSnippet(
+    `${s05Root}/s05d01/S05D01Message.jte`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="S05D01Message.jte"`), outFile: `${outRoot}/s05d01_message_jte.mdx` }
+  );
+
+
 }
 
 main();
