@@ -18,6 +18,7 @@ function main() {
   let javaController = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s01plainjte/PlainJTEController.java`;
   let plainJte = `${srcRoot}/src/main/java/jte/plainjte`;
   let jteComponents = `${srcRoot}/src/main/java/jte/components`;
+  let jtePages = `${srcRoot}/src/main/java/jte/pages`;
 
   // Components:
   processSnippet(
@@ -35,7 +36,7 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworldcontent.jte"`), outFile: `${outRoot}/components/helloworldcontent_jte.mdx` }
   );
 
-  // S01P01:
+  // S01D01:
   processSnippet(
     javaController,
     { allowedTags: ['class', 's01d01'], transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`), outFile: `${outRoot}/s01d01_java.mdx` }
@@ -45,7 +46,7 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="s01d01.jte"`), outFile: `${outRoot}/s01d01_jte.mdx` }
   );
 
-  // S01P02:
+  // S01D02:
   processSnippet(
     javaController,
     { allowedTags: ['class', 's01d02'], transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`), outFile: `${outRoot}/s01d02_java.mdx` }
@@ -55,7 +56,7 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="s01d02.jte"`), outFile: `${outRoot}/s01d02_jte.mdx` }
   );
 
-  // S01P03:
+  // S01D03:
   processSnippet(
     javaController,
     { allowedTags: ['class', 's01d03'], transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`), outFile: `${outRoot}/s01d03_java.mdx` }
@@ -65,7 +66,7 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="s01d03.jte"`), outFile: `${outRoot}/s01d03_jte.mdx` }
   );
 
-  // S01P04:
+  // S01D04:
   processSnippet(
     javaController,
     { allowedTags: ['class', 's01d04'], transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`), outFile: `${outRoot}/s01d04_java.mdx` }
@@ -75,7 +76,7 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="s01d04.jte"`), outFile: `${outRoot}/s01d04_jte.mdx` }
   );
 
-  // S01P05:
+  // S01D05:
   processSnippet(
     javaController,
     { allowedTags: ['class', 's01d05'], transformFn: snippetToCodeBlock(`java title="PlainJTEController.java"`), outFile: `${outRoot}/s01d05_java.mdx` }
@@ -88,7 +89,7 @@ function main() {
 
   // S02:
   let s02Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s02simplevcdemos`;
-  // S02P01:
+  // S02D01:
   processSnippet(
     `${s02Root}/s02d01/S02D01.java`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D01.java"`), outFile: `${outRoot}/s02d01_java.mdx` }
@@ -98,7 +99,7 @@ function main() {
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S02D01.jte"`), outFile: `${outRoot}/s02d01_jte.mdx` }
   );
 
-  // S02P02:
+  // S02D02:
   processSnippet(
     `${s02Root}/s02d02/S02D02.java`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D02.java"`), outFile: `${outRoot}/s02d02_java.mdx` }
@@ -117,7 +118,7 @@ function main() {
   );
 
 
-  // S02P03:
+  // S02D03:
   processSnippet(
     `${s02Root}/s02d03/S02D03.java`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D03.java"`), outFile: `${outRoot}/s02d03_java.mdx` }
@@ -135,7 +136,7 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldParams.jte"`), outFile: `${outRoot}/s02d03_component_jte.mdx` }
   );
 
-  // S02P04:
+  // S02D04:
   processSnippet(
     `${s02Root}/s02d04/S02D04.java`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D04.java"`), outFile: `${outRoot}/s02d04_java.mdx` }
@@ -153,7 +154,7 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldContent.jte"`), outFile: `${outRoot}/s02d04_component_jte.mdx` }
   );
 
-  // S02P05:
+  // S02D05:
   processSnippet(
     `${s02Root}/s02d05/S02D05.java`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S02D05.java"`), outFile: `${outRoot}/s02d05_java.mdx` }
@@ -171,6 +172,73 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="HelloWorldNestedComponents.jte"`), outFile: `${outRoot}/s02d05_component_jte.mdx` }
   );
 
+  // S03:
+  let s03Root = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s03pages`;
+
+  processSnippet(
+    `${jtePages}/bulmapage.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="bulmapage.jte"`), outFile: `${outRoot}/pages/bulmapage_jte.mdx` }
+  );
+  processSnippet(
+    `${jtePages}/page_head.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="page_head.jte"`), outFile: `${outRoot}/pages/page_head_jte.mdx` }
+  );
+
+  // S03D01:
+  processSnippet(
+    `${s03Root}/s03d01/S03D01.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S03D01.java"`), outFile: `${outRoot}/s03d01_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d01/S03D01.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S03D01.jte"`), outFile: `${outRoot}/s03d01_jte.mdx` }
+  );
+
+  // S03D02:
+  processSnippet(
+    `${s03Root}/s03d02/S03D02.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S03D02.java"`), outFile: `${outRoot}/s03d02_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d02/S03D02.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S03D02.jte"`), outFile: `${outRoot}/s03d02_jte.mdx` }
+  );
+
+  // S03D03:
+  processSnippet(
+    `${s03Root}/s03d03/S03D03.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S03D03.java"`), outFile: `${outRoot}/s03d03_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d03/S03D03.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S03D03.jte"`), outFile: `${outRoot}/s03d03_jte.mdx` }
+  );
+
+  // S03D04:
+  processSnippet(
+    `${s03Root}/s03d04/S03D04P1.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S03D04P1.java"`), outFile: `${outRoot}/s03d04p1_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d04/S03D04P1.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S03D04P1.jte"`), outFile: `${outRoot}/s03d04p1_jte.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d04/S03D04P2.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="S03D04P2.java"`), outFile: `${outRoot}/s03d04p2_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d04/S03D04P2.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="S03D04P2.jte"`), outFile: `${outRoot}/s03d04p2_jte.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d04/MpaLayout.java`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`java title="MpaLayout.java"`), outFile: `${outRoot}/s03d04_mpa_layout_java.mdx` }
+  );
+  processSnippet(
+    `${s03Root}/s03d04/MpaLayout.jte`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="MpaLayout.jte"`), outFile: `${outRoot}/s03d04_mpa_layout_jte.mdx` }
+  );
 
 }
 

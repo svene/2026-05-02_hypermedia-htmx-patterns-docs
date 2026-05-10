@@ -3,11 +3,92 @@ title: Page Patterns
 description: TODO
 ---
 
-...
+import { Aside } from '@astrojs/starlight/components';
 
-## ...
+import BulmaPage from '@snippets/pages/bulmapage_jte.mdx'
+import PageHead from '@snippets/pages/page_head_jte.mdx'
 
-...
+import S03D01Java from '@snippets/s03d01_java.mdx'
+import S03D01JTE from '@snippets/s03d01_jte.mdx'
 
-[Demo](http://localhost:8081/page01)
+import S03D02Java from '@snippets/s03d02_java.mdx'
+import S03D02JTE from '@snippets/s03d02_jte.mdx'
+
+import S03D03Java from '@snippets/s03d03_java.mdx'
+import S03D03JTE from '@snippets/s03d03_jte.mdx'
+
+import S03D04P1Java from '@snippets/s03d04p1_java.mdx'
+import S03D04P1JTE from '@snippets/s03d04p1_jte.mdx'
+import S03D04P2Java from '@snippets/s03d04p2_java.mdx'
+import S03D04P2JTE from '@snippets/s03d04p2_jte.mdx'
+import S03D04MpaLayoutJava from '@snippets/s03d04_mpa_layout_java.mdx'
+import S03D04MpaLayoutJTE from '@snippets/s03d04_mpa_layout_jte.mdx'
+
+For Multi Page Applications (MPAs) or just a single page.
+
+
+## 1. Content Page
+
+Recommended for most use cases
+
+<S03D01Java/>
+<S03D01JTE/>
+<BulmaPage/>
+<PageHead/>
+
+[Demo](http://localhost:8081/ui/s03pages/s03d01)
+
+## 2. Parameter
+
+Content Page taking a parameter
+
+<S03D02Java/>
+<S03D02JTE/>
+
+[Demo](http://localhost:8081/ui/s03pages/s03d02)
+
+## 3. Custom Page
+
+Custom Page taking a parameter. When the default content page does not fit.
+
+Recommended for special case pages of an application.
+This page-component does not use a layout component.
+Instead it constructs a page by including the common parts like header, navigation and footer itself.
+So this component has an active role in the process of constructing a page, not a passive one as in the Content-Page Pattern.
+In the Content-Page Pattern the layout (including header, navigation and footer) is reusable.
+In this Custom-Page Pattern only the parts (header, navigation, footer) are reusable.
+
+<S03D03Java/>
+<S03D03JTE/>
+
+[Demo](http://localhost:8081/ui/s03pages/s03d03)
+
+## 4. MPA Example
+
+Multi Page Application with a menu
+
+The pages of this application all use a common layout component (the template).
+
+In contrast to the Inclusion Pattern the __layout__ component __plays an active role__
+in the template process because it pulls in the component.
+The component plays the passive role.
+Therefore it is the layout which uses the injection pattern, not the component.
+
+Since the components are injected into the layout dynamically
+it can be reused for all pages of the application.
+
+For this demo the injected component-content is surrounded with a colored border
+to show what is coming from the layout and what is coming from the component.
+Everything outside the border is coming from the layout template.
+Everything inside is comping from the injected component. 
+
+<S03D04MpaLayoutJava/>
+<S03D04MpaLayoutJTE/>
+<S03D04P1Java/>
+<S03D04P1JTE/>
+<S03D04P2Java/>
+<S03D04P2JTE/>
+
+
+[Demo](http://localhost:8081/ui/s03pages/s03d04p1)
 
