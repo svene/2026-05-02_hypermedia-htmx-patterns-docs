@@ -26,8 +26,17 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Simple Pages',
-					autogenerate: { directory: 'demos' },
+					label: 'Technologies',
+					items: [
+						{
+							label: 'JTE',
+							autogenerate: { directory: 'technologies/JTE' },
+						},
+						{
+							label: 'Thymeleaf',
+							autogenerate: { directory: 'technologies/Thymeleaf' },
+						},
+					],
 				},
 				{
 					label: 'Guides',
