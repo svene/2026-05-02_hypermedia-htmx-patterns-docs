@@ -3,11 +3,13 @@ title: Using plain TS files
 description: Simple Pages using plain JSX files
 ---
 
-import HelloWorld from '@snippets/components/helloworld_ts.mdx'
+import HelloWorld from '@snippets/components/hono/helloworld_ts.mdx'
+import HelloWorldParams from '@snippets/components/hono/helloworldparams_ts.mdx'
 
 
 import M01D01TS from '@snippets/hono/m01d01_ts.mdx'
 import M01D02TS from '@snippets/hono/m01d02_ts.mdx'
+import M01D03TS from '@snippets/hono/m01d03_ts.mdx'
 
 For basic usecases.
 
@@ -17,6 +19,8 @@ For basic usecases.
 Made using a HTML template.
 
 [Demo](http://localhost:3000/m01/d01)
+
+<iframe width="800" scrolling="no" src="http://localhost:3000/m01/d01"></iframe>
 
 
 With routing and ````c.html( html`...` )```` for the template.
@@ -28,6 +32,17 @@ The HTML can be implemented inside the same ts file as the routing function.
 
 [Demo](http://localhost:3000/m01/d02)
 
+<iframe width="800" scrolling="no" src="http://localhost:3000/m01/d02"></iframe>
+
 <M01D02TS/>
 <HelloWorld/>
+
+## 3. Page and Component with Parameters
+
+[Demo](http://localhost:3000/m01/d03?greetee=You)
+
+<iframe width="800" scrolling="no" src="http://localhost:3000/m01/d03?greetee=You"></iframe>
+
+<M01D03TS/>
+<HelloWorldParams/>
 
