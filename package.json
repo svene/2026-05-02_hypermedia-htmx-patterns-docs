@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "extract-snippets": "node extract-all-snippets.js"
+    "extract-snippets": "node extract-snippets/extract-all-snippets.js"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.38.4",

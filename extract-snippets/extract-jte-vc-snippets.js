@@ -1,20 +1,9 @@
 import { processSnippet } from './extract-snippet.js';
-import { extractJteVcSnippets } from './extract-jte-vc-snippets.js';
+import { snippetToCodeBlock } from './extract-functions.js';
 
-const snippetToCodeBlock = optionString => (snippet) => {
-  return `
-\`\`\`${optionString}
-${snippet}
-\`\`\`
-`;
-}
-
-function main() {
-  extractJteVcSnippets();
+export function extractJteVcSnippets() {
   const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
   const outRoot = 'generated/snippets';
-
-
 
   // S01:
   let javaController = `${srcRoot}/src/main/java/org/svenehrke/demo/web/s01plainjte/PlainJTEController.java`;
@@ -318,7 +307,4 @@ function main() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="S05D01Message.jte"`), outFile: `${outRoot}/s05d01_message_jte.mdx` }
   );
 
-
 }
-
-main();
