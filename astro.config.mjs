@@ -37,16 +37,20 @@ export default defineConfig({
 							autogenerate: { directory: 'technologies/02_Thymeleaf' },
 						},
 						{
+							label: 'Hono JSX',
+							autogenerate: { directory: 'technologies/03_Hono' },
+						},
+						{
 							label: 'JSX with Spring & Hono',
-							autogenerate: { directory: 'technologies/03_JsxSpringHono' },
+							autogenerate: { directory: 'technologies/04_JsxSpringHono' },
 						},
 						{
 							label: 'Embedded JSX: Spring',
-							autogenerate: { directory: 'technologies/04_GraalJSXSpring' },
+							autogenerate: { directory: 'technologies/05_GraalJSXSpring' },
 						},
 						{
 							label: 'Embedded JSX: Quarkus',
-							autogenerate: { directory: 'technologies/05_GraalJSXQuarkus' },
+							autogenerate: { directory: 'technologies/06_GraalJSXQuarkus' },
 						},
 					],
 				},
