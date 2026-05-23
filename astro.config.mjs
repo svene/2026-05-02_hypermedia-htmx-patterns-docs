@@ -30,11 +30,23 @@ export default defineConfig({
 					items: [
 						{
 							label: 'JTE',
-							autogenerate: { directory: 'technologies/JTE' },
+							autogenerate: { directory: 'technologies/01_JTE' },
 						},
 						{
 							label: 'Thymeleaf',
-							autogenerate: { directory: 'technologies/Thymeleaf' },
+							autogenerate: { directory: 'technologies/02_Thymeleaf' },
+						},
+						{
+							label: 'JSX with Spring & Hono',
+							autogenerate: { directory: 'technologies/03_JsxSpringHono' },
+						},
+						{
+							label: 'Embedded JSX: Spring',
+							autogenerate: { directory: 'technologies/04_GraalJSXSpring' },
+						},
+						{
+							label: 'Embedded JSX: Quarkus',
+							autogenerate: { directory: 'technologies/05_GraalJSXQuarkus' },
 						},
 					],
 				},

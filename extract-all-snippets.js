@@ -1,4 +1,5 @@
 import { processSnippet } from './extract-snippet.js';
+import { extractJteVcSnippets } from './extract-jte-vc-snippets.js';
 
 const snippetToCodeBlock = optionString => (snippet) => {
   return `
@@ -9,6 +10,7 @@ ${snippet}
 }
 
 function main() {
+  extractJteVcSnippets();
   const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
   const outRoot = 'generated/snippets';
 
