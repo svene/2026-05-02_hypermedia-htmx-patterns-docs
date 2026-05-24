@@ -10,51 +10,27 @@ export function extractHonoSnippets() {
   let components = `${srcRoot}/src/components`;
 
   // Components:
-  processSnippet(
-    `${components}/helloworld.ts`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworld.ts"`), outFile: `${outRoot}/components/hono/helloworld_ts.mdx` }
-  );
-
-  processSnippet(
-    `${components}/helloworldparams.ts`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworldparams.ts"`), outFile: `${outRoot}/components/hono/helloworldparams_ts.mdx` }
-  );
-
-  processSnippet(
-    `${components}/helloworldcontent.ts`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworldcontent.ts"`), outFile: `${outRoot}/components/hono/helloworldcontent_ts.mdx` }
-  );
+  const component = n => {
+    processSnippet(
+    `${components}/${n}.ts`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.ts"`), outFile: `${outRoot}/components/hono/${n}_ts.mdx` }
+    );
+  }
+  component('helloworld');
+  component('helloworldparams');
+  component('helloworldcontent');
 
   // M01D01:
-  processSnippet(
-    `${m01}/m01d01.ts`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d01.ts"`), outFile: `${outRoot}/hono/m01d01_ts.mdx` }
-  );
-
-  // M01D02:
-  processSnippet(
-    `${m01}/m01d02.ts`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d02.ts"`), outFile: `${outRoot}/hono/m01d02_ts.mdx` }
-  );
-
-  // M01D03:
-  processSnippet(
-    `${m01}/m01d03.ts`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d03.ts"`), outFile: `${outRoot}/hono/m01d03_ts.mdx` }
-  );
-
-  // M01D04:
-  processSnippet(
-    `${m01}/m01d04.ts`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d04.ts"`), outFile: `${outRoot}/hono/m01d04_ts.mdx` }
-  );
-
-  // M01D05:
-  processSnippet(
-    `${m01}/m01d05.ts`,
-    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d05.ts"`), outFile: `${outRoot}/hono/m01d05_ts.mdx` }
-  );
-
-
+  const m01page = n => {
+    processSnippet(
+      `${m01}/${n}.ts`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.ts"`), outFile: `${outRoot}/hono/${n}_ts.mdx` }
+    );
+  }
+  m01page('m01d01');
+  m01page('m01d02');
+  m01page('m01d03');
+  m01page('m01d04');
+  m01page('m01d05');
 
 }
