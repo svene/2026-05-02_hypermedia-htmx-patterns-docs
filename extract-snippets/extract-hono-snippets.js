@@ -20,6 +20,11 @@ export function extractHonoSnippets() {
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworldparams.ts"`), outFile: `${outRoot}/components/hono/helloworldparams_ts.mdx` }
   );
 
+  processSnippet(
+    `${components}/helloworldcontent.ts`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="helloworldcontent.ts"`), outFile: `${outRoot}/components/hono/helloworldcontent_ts.mdx` }
+  );
+
   // M01D01:
   processSnippet(
     `${m01}/m01d01.ts`,
@@ -36,6 +41,18 @@ export function extractHonoSnippets() {
   processSnippet(
     `${m01}/m01d03.ts`,
     { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d03.ts"`), outFile: `${outRoot}/hono/m01d03_ts.mdx` }
+  );
+
+  // M01D04:
+  processSnippet(
+    `${m01}/m01d04.ts`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d04.ts"`), outFile: `${outRoot}/hono/m01d04_ts.mdx` }
+  );
+
+  // M01D05:
+  processSnippet(
+    `${m01}/m01d05.ts`,
+    { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="m01d05.ts"`), outFile: `${outRoot}/hono/m01d05_ts.mdx` }
   );
 
 
