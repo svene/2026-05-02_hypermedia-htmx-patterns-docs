@@ -15,7 +15,7 @@ export function processSnippet(filePath, options) {
     contentType,
     transformFn,
     outFile,
-    delimiter = '<BR>'
+    delimiter
   } = options;
 
   const content = fs.readFileSync(filePath, 'utf-8');

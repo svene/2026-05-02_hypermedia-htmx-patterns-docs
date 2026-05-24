@@ -1,7 +1,7 @@
 export default function extractByTags(content, options) {
     const {
         allowedTags,
-        delimiter = '...'
+        delimiter = undefined
     } = options;
 
     // replace all leading tabs with spaces for indent determination later:
@@ -132,13 +132,14 @@ function removeInlineComment(line) {
     const slashIdx = before.lastIndexOf('//');
     const htmlIdx = before.lastIndexOf('<!--');
     const jteIdx = before.lastIndexOf('<%--');
+    const jsxIdx = before.lastIndexOf('{/*');
 
     let cutIdx = -1;
 
     if (slashIdx !== -1 && htmlIdx !== -1) {
-        cutIdx = Math.max(slashIdx, htmlIdx, jteIdx);
+        cutIdx = Math.max(slashIdx, htmlIdx, jteIdx, jsxIdx);
     } else {
-        cutIdx = slashIdx !== -1 ? slashIdx : htmlIdx !== -1 ? htmlIdx : jteIdx;
+        cutIdx = slashIdx !== -1 ? slashIdx : htmlIdx !== -1 ? htmlIdx : jteIdx !== -1 ? jteIdx : jsxIdx;
     }
 
     if (cutIdx === -1) cutIdx = docsIdx;

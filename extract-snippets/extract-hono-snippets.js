@@ -6,17 +6,17 @@ export function extractHonoSnippets() {
   const outRoot = 'generated/snippets';
 
   let components = `${srcRoot}/src/components`;
-
+  
   // Components:
-  const component = n => {
+  const htmlComponent = n => {
     processSnippet(
     `${components}/${n}.ts`,
     { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.ts"`), outFile: `${outRoot}/components/hono/${n}_ts.mdx` }
     );
   }
-  component('helloworld');
-  component('helloworldparams');
-  component('helloworldcontent');
+  htmlComponent('helloworld');
+  htmlComponent('helloworldparams');
+  htmlComponent('helloworldcontent');
 
   // M01:
   const m01page = n => {
@@ -33,12 +33,30 @@ export function extractHonoSnippets() {
   m01page('m01d05');
 
   // M02:
+  let jsxComponents = `${srcRoot}/src/c00jsxcomponents`;
+  const jsxComponent = n => {
+    processSnippet(
+    `${jsxComponents}/${n}.tsx`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/components/hono/${n}_tsx.mdx` }
+    );
+  }
+
+  jsxComponent('helloworldjsx');
+  jsxComponent('helloworldparamsjsx');
+  jsxComponent('helloworldcontentjsx');
+  jsxComponent('helloworldnestedjsx');
+
   const m02page = n => {
     const m02 = `${srcRoot}/src/m02jsx`;
     processSnippet(
       `${m02}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/hono/${n}_tsx.mdx` }
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/hono/${n}_tsx.mdx`}
     );
   }
   m02page('m02d01');
+  m02page('m02d02');
+  m02page('m02d03');
+  m02page('m02d04');
+  m02page('m02d05');
+
 }
