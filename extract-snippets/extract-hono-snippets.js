@@ -79,11 +79,24 @@ export function extractHonoSnippets() {
 
   // M04:
   const m04page = n => {
-    const m04 = `${srcRoot}/src/m04pages`;
+    const m04 = `${srcRoot}/src/m04uipatterns`;
     processSnippet(
-      `${m03}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m03/${n}_tsx.mdx`}
+      `${m04}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m04/${n}_tsx.mdx`}
+    );
+  }
+  const m04Component = n => {
+    const m04 = `${srcRoot}/src/m04uipatterns`;
+    processSnippet(
+      `${m04}/${n}.tsx`,
+      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m04/${n}_tsx.mdx`}
     );
   }
 
+  m04page('m04d01');
+  m04Component('m04d01child');
+  m04Component('m04d01parent');
+  m04page('m04d02');
+  m04Component('m04d02first');
+  m04Component('m04d02second');
 }
