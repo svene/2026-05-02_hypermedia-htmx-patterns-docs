@@ -20,6 +20,12 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 # custom
 generated/
 
