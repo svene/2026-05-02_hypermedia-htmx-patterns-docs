@@ -1,0 +1,183 @@
+---
+title: Tips and Tricks
+description: HTMX Patterns
+---
+
+## Use html snippets in JSX
+
+```html title="page.tsx"
+function init(app: Hono) {
+  app.get('/', (c) => {
+    return c.render(
+      <div>
+        {hello()}
+      </div>
+    )
+  });
+}
+```
+
+```html title="components.ts"
+function hello() {
+	return html`
+		<h1>Hello</h1>
+      `
+}
+```
+
+The code for the components live in a ts file and can be used from tsx code.
+
+## Use JSX snippets in HTML
+
+```html title="consumer.ts"
+import { html } from 'hono/html'
+import { render } from 'hono/jsx-server' // server-side rendering
+
+export const BODY = html`
+  <div>
+    ${render(<MyJSX />)}
+  </div>
+`
+````
+
+```html title="component.tsx"
+const MyJSX = () => <strong>Hi from JSX!</strong>
+````
+
+## Return multiple siblings from a JSX component:
+
+JSX in general can only return one root JSX node.
+To return multiple siblings at the top level use:
+
+```html title="<>"
+app.get('/', (c) => {
+  return c.render(
+    <>
+      <div>
+      </div>
+    </>
+````
+
+If `<>` would not be supported use:
+```html title="<Fragment>"
+app.get('/', (c) => {
+  return c.render(
+    <Fragment>
+      <div>
+      </div>
+    </Fragment>
+````
+
+## props.children
+
+props.children is a special prop that represents whatever you wrap inside a component’s opening and closing tags.
+
+````
+function Card(props) {
+  return (
+    <div className="card">
+      {props.children}
+    </div>
+  );
+}
+
+<Card>
+  <h1>Hello</h1>
+  <p>This is inside the card</p>
+</Card>
+
+````
+
+## Multiple named content areas
+
+```html title="component.tsx"
+const Layout = ({ header, footer, children }) => {
+  return (
+    <html>
+      <body>
+        <header>{header}</header>
+        <main>{children}</main>
+        <footer>{footer}</footer>
+      </body>
+    </html>
+  )
+}
+````
+
+```html title="usage.tsx"
+app.get("/", (c) => {
+  return c.html(
+    <Layout
+      header={<h1>My Site</h1>}
+      footer={<small>© 2025</small>}
+    >
+      <p>Main content goes here</p>
+    </Layout>
+  )
+})
+
+````
+
+## Optional parts
+
+```html title="optional small fragment"
+type MaincardProps = {
+	title: Child
+	subtitle?: Child
+}
+
+export const Maincard = (props: MaincardProps) => {
+	return (
+		<div>
+            <p className="title is-4 mb-1">{props.title}</p>
+            {props.subtitle && (
+                <p className="title is-6 mb-1">
+	    			{props.subtitle}
+		    	</p>
+            )}
+			{props.children}
+		</div>
+	);
+};
+
+````
+
+```html title="optional large fragment"
+type MaincardProps = {
+	title: Child
+	count: number
+}
+
+export const Maincard = (props: MaincardProps) => {
+	const subtitlePart = props.count > 10
+		? (
+			<p className="title is-6 mb-1">
+				{props.subtitle}
+			</p>
+		)
+		: undefined;
+
+	return (
+		<div>
+            <p className="title is-4 mb-1">{props.title}</p>
+			{subtitlePart}
+			{props.children}
+		</div>
+	);
+};
+
+````
+
+| Case             | Best Pattern     |
+| ---------------- | ---------------- |
+| simple show/hide | `&&`             |
+| needs else       | `?:`             |
+| complex logic    | `if` outside JSX |
+
+
+## Misc
+
+https://discord.com/channels/725789699527933952/1156332623233302578/1321068055068934145
+unfortunately jsx doesn't really have a syntax for adding attributes conditionally
+or adding html attributes that aren't valid xml attributes (e.g. hx-on::)
+

@@ -99,4 +99,24 @@ export function extractHonoSnippets() {
   m04page('m04d02');
   m04Component('m04d02first');
   m04Component('m04d02second');
+
+  // M05:
+  const m05page = n => {
+    const m05 = `${srcRoot}/src/m05htmx`;
+    processSnippet(
+      `${m05}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m05/${n}_tsx.mdx`}
+    );
+  }
+  const m05Component = n => {
+    const m05 = `${srcRoot}/src/m05htmx`;
+    processSnippet(
+      `${m05}/${n}.tsx`,
+      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/components/m05/${n}_tsx.mdx`}
+    );
+  }
+
+  m05page('m05d01');
+  m05Component('m05d01message');
+
 }
