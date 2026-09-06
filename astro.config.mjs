@@ -29,8 +29,8 @@ export default defineConfig({
 					label: 'Technologies',
 					items: [
 						{
-							label: 'JTE',
-							autogenerate: { directory: 'technologies/01_JTE' },
+							label: 'JTE-VC',
+							autogenerate: { directory: 'technologies/01_JTE-VC' },
 						},
 						{
 							label: 'Thymeleaf',
