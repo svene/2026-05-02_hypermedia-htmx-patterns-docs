@@ -1,49 +1,52 @@
-# Starlight Starter Kit: Basics
+# Documentation for 2025-08-23_ssfe-patterns-jte-vc-htmx
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+An [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/)
+site that documents the hypermedia / htmx variant projects. The prose is written
+by hand; every **code sample is extracted from the real variant source** via
+`docs:start` / `docs:end` tag markers, so the docs cannot drift from the code.
 
-```
-npm create astro@latest -- --template starlight
-```
+Despite the folder name it is not limited to the JTE-VC variant: it currently
+also covers the Hono variant, and the sidebar is scaffolded for Thymeleaf, the
+JSX / Spring-Hono line and the two Graal-JSX demos. The intent is to grow
+snippets from more variants over time.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Usage
 
-## 🚀 Project Structure
+Prerequisites: Node 20+ (developed on Node 26).
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+````bash
+npm install                # once
+npm run extract-snippets   # pull code samples from the variant sources
+npm run dev                # Starlight dev server on http://localhost:4321
+````
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+Then open <http://localhost:4321/> — e.g. <http://localhost:4321/guides/example/>
+— to see the live docs. The pages under `technologies/*` are the ones that embed
+the extracted snippets.
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+The demo `<iframe>`s on those pages point at `http://localhost:3000/…`, i.e. the
+documented variant's own dev server. Start that separately if you want the live
+demos to load; the snippets and prose render fine without it.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Dev cycle
 
-Static assets, like favicons, can be placed in the `public/` directory.
+1. Edit a variant's source. The source roots are the `srcRoot` paths in
+   `extract-snippets/extract-jte-vc-snippets.js` and
+   `extract-snippets/extract-hono-snippets.js` (currently
+   `../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx` and
+   `../../2025/2025-12-27_ssfe-patterns-hono-htmx`). Keep the
+   `docs:start <tag>` / `docs:end <tag>` markers around the region you want shown.
+2. Re-run `npm run extract-snippets`. This rewrites `generated/snippets/**`
+   (git-ignored).
+3. The running `npm run dev` server hot-reloads the affected pages.
 
-## 🧞 Commands
+To add a new snippet: wrap the source region in markers, register it in the
+matching `extract-*-snippets.js`, then `import` the generated `.mdx` from
+`@snippets/…` in the relevant page under `src/content/docs/technologies/`.
 
-All commands are run from the root of the project, from a terminal:
+## Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+- `generated/` and `.astro/` are git-ignored and rebuilt by the steps above.
+- `README_org.md` is the original Starlight starter-kit README, kept for
+  reference.
+- `npm run build` / `npm run preview` build and preview the static site.
