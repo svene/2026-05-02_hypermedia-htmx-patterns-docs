@@ -7,9 +7,13 @@ import Layout from '@snippets/thymeleaf/components/layout_html.mdx'
 import PageHead from '@snippets/thymeleaf/components/page-head_html.mdx'
 import MpaLayout from '@snippets/thymeleaf/components/m03d04-layout_html.mdx'
 
+import D01Java from '@snippets/thymeleaf/pages/m03pages/d01_java.mdx'
 import D01 from '@snippets/thymeleaf/pages/m03pages/d01_html.mdx'
+import D02Java from '@snippets/thymeleaf/pages/m03pages/d02_java.mdx'
 import D02 from '@snippets/thymeleaf/pages/m03pages/d02_html.mdx'
+import D03Java from '@snippets/thymeleaf/pages/m03pages/d03_java.mdx'
 import D03 from '@snippets/thymeleaf/pages/m03pages/d03_html.mdx'
+import D04Java from '@snippets/thymeleaf/pages/m03pages/d04_java.mdx'
 import D04P1 from '@snippets/thymeleaf/pages/m03pages/d04p1_html.mdx'
 import D04P2 from '@snippets/thymeleaf/pages/m03pages/d04p2_html.mdx'
 
@@ -21,9 +25,10 @@ A reusable `layout` fragment supplies `<html>`, `<head>` and the container; the
 page provides only the content it should wrap
 (`th:replace="~{fragments/layout :: page('Content Page', ~{::pageContent})}"`).
 
-<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:8080/m03/d01"></iframe>
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/m03/d01"></iframe>
 [Demo](http://localhost:8080/m03/d01)
 
+<D01Java/>
 <D01/>
 <Layout/>
 <PageHead/>
@@ -32,9 +37,10 @@ page provides only the content it should wrap
 
 Same layout, but the page reads a `?greeting=` request parameter.
 
-<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:8080/m03/d02?greeting=Hey%20You!"></iframe>
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/m03/d02?greeting=Hey%20You!"></iframe>
 [Demo](http://localhost:8080/m03/d02?greeting=Hey%20You!)
 
+<D02Java/>
 <D02/>
 
 ## 3. Custom Page taking a parameter
@@ -43,9 +49,10 @@ When the opinionated content page does not fit: this page builds the whole
 document itself and only reuses the small `page-head` fragment. The page has the
 active role, not a layout.
 
-<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:8080/m03/d03?greeting=Hey%20You!"></iframe>
+<iframe width="100%" style="min-height: 340px" scrolling="no" src="http://localhost:8080/m03/d03?greeting=Hey%20You!"></iframe>
 [Demo](http://localhost:8080/m03/d03?greeting=Hey%20You!)
 
+<D03Java/>
 <D03/>
 
 ## 4. MPA Example
@@ -53,9 +60,10 @@ active role, not a layout.
 Two pages (`d04p1`, `d04p2`) share one nav layout that highlights the current
 page from a `selectedMenu` model attribute.
 
-<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:8080/m03/d04p1"></iframe>
+<iframe width="100%" style="min-height: 620px" scrolling="no" src="http://localhost:8080/m03/d04p1"></iframe>
 [Demo](http://localhost:8080/m03/d04p1)
 
+<D04Java/>
 <D04P1/>
 <D04P2/>
 <MpaLayout/>
