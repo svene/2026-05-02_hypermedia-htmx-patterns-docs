@@ -1,0 +1,79 @@
+---
+title: Simple Pages
+description: Simple Pages using Qute templates
+---
+
+import HelloWorld from '@snippets/qute/components/helloworld_html.mdx'
+import HelloWorldParams from '@snippets/qute/components/helloworldparams_html.mdx'
+import HelloWorldContent from '@snippets/qute/components/helloworldcontent_html.mdx'
+
+import D01Java from '@snippets/qute/pages/s01/d01_java.mdx'
+import D01 from '@snippets/qute/pages/s01/d01_html.mdx'
+import D02Java from '@snippets/qute/pages/s01/d02_java.mdx'
+import D02 from '@snippets/qute/pages/s01/d02_html.mdx'
+import D03Java from '@snippets/qute/pages/s01/d03_java.mdx'
+import D03 from '@snippets/qute/pages/s01/d03_html.mdx'
+import D04Java from '@snippets/qute/pages/s01/d04_java.mdx'
+import D04 from '@snippets/qute/pages/s01/d04_html.mdx'
+import D05Java from '@snippets/qute/pages/s01/d05_java.mdx'
+import D05 from '@snippets/qute/pages/s01/d05_html.mdx'
+
+For basic use cases. Needs a JAX-RS resource returning a `TemplateInstance`.
+
+## 1. Basic Page using a template
+
+Made using a plain Qute template. The `@CheckedTemplate` inner class binds the
+template file to a typed method.
+
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/s01/d01"></iframe>
+[Demo](http://localhost:8080/s01/d01)
+
+<D01Java/>
+<D01/>
+
+## 2. Basic Page using a component
+
+`{#include …/helloworld.html}{/include}` pulls in another template.
+
+<iframe width="100%" style="min-height: 180px" scrolling="no" src="http://localhost:8080/s01/d02"></iframe>
+[Demo](http://localhost:8080/s01/d02)
+
+<D02Java/>
+<D02/>
+<HelloWorld/>
+
+## 3. Page and component with parameters
+
+The component declares its parameters with `{@String …}`; the page passes one
+literally and one through from the resource.
+
+<iframe width="100%" style="min-height: 180px" scrolling="no" src="http://localhost:8080/s01/d03?greetee=You"></iframe>
+[Demo](http://localhost:8080/s01/d03?greetee=You)
+
+<D03Java/>
+<D03/>
+<HelloWorldParams/>
+
+## 4. Content parameter
+
+When HTML needs to be passed into a component. The component marks the hole with
+`{#insert}{/insert}`; the caller fills it inside the `{#include}` body.
+
+<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:8080/s01/d04"></iframe>
+[Demo](http://localhost:8080/s01/d04)
+
+<D04Java/>
+<D04/>
+<HelloWorldContent/>
+
+## 5. Nested components
+
+Template in template — the content passed to the outer component includes the
+same component again.
+
+<iframe width="100%" style="min-height: 390px" scrolling="no" src="http://localhost:8080/s01/d05"></iframe>
+[Demo](http://localhost:8080/s01/d05)
+
+<D05Java/>
+<D05/>
+<HelloWorldContent/>
