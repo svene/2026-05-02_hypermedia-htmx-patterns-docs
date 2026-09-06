@@ -1,0 +1,22 @@
+---
+title: HTMX Patterns
+description: htmx with Thymeleaf
+---
+
+import D01 from '@snippets/thymeleaf/pages/m05htmxpatterns/d01_html.mdx'
+import Message from '@snippets/thymeleaf/pages/m05htmxpatterns/d01-message_html.mdx'
+
+For more interactivity.
+
+## 1. URL Components
+
+A button `hx-get`s a fragment endpoint by its URL and htmx swaps the response
+into the page. The fragment endpoint is just another handler on the same
+controller; its template is a bare `<h3>` with no document wrapper, so the swap
+stays clean.
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:8080/m05/d01"></iframe>
+[Demo](http://localhost:8080/m05/d01)
+
+<D01/>
+<Message/>

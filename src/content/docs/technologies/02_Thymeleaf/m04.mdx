@@ -1,0 +1,41 @@
+---
+title: UI Patterns
+description: Reusable Thymeleaf fragments
+---
+
+import D01 from '@snippets/thymeleaf/pages/m04uipatterns/d01_html.mdx'
+import Parent from '@snippets/thymeleaf/components/m04-parent_html.mdx'
+import Child from '@snippets/thymeleaf/components/m04-child_html.mdx'
+
+import D02 from '@snippets/thymeleaf/pages/m04uipatterns/d02_html.mdx'
+import First from '@snippets/thymeleaf/components/m04-forwarder-first_html.mdx'
+import Second from '@snippets/thymeleaf/components/m04-forwarder-second_html.mdx'
+
+For reusable UI parts and components.
+
+## 1. Parent Child
+
+The parent fragment builds a chunk of slot markup (interpolating its own
+`greeting` parameter) and passes it **down** into the child fragment via
+`~{::#slot1/content()}`. Use when a child owns a large chunk of HTML and the
+parent only customises a small part of it.
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:8080/m04/d01"></iframe>
+[Demo](http://localhost:8080/m04/d01)
+
+<D01/>
+<Parent/>
+<Child/>
+
+## 2. Forwarder
+
+A fragment that, from its parameter, decides whether to render itself or delegate
+to another fragment. (`th:if` wraps the `th:replace` in a separate element
+because `th:replace` has the higher attribute precedence.)
+
+<iframe width="100%" style="min-height: 150px" scrolling="no" src="http://localhost:8080/m04/d02"></iframe>
+[Demo](http://localhost:8080/m04/d02)
+
+<D02/>
+<First/>
+<Second/>
