@@ -19,7 +19,7 @@ export default defineConfig({
   },
 	integrations: [
 		starlight({
-			title: 'Server Side Frontend Patterns - with plain JTE and ViewComponents',
+			title: 'Server Side Frontend Patterns',
 			customCss: [
         		'./src/styles/custom.css',
       		],
@@ -51,6 +51,10 @@ export default defineConfig({
 						{
 							label: 'Embedded JSX: Quarkus',
 							autogenerate: { directory: 'technologies/06_GraalJSXQuarkus' },
+						},
+						{
+							label: 'Qute',
+							autogenerate: { directory: 'technologies/07_Qute' },
 						},
 					],
 				},

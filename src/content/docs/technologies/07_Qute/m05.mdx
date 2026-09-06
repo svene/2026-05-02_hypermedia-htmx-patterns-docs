@@ -1,0 +1,23 @@
+---
+title: HTMX Patterns
+description: htmx with Qute
+---
+
+import D01Java from '@snippets/qute/pages/m05/d01_java.mdx'
+import D01 from '@snippets/qute/pages/m05/d01_html.mdx'
+import Message from '@snippets/qute/components/m05d01message_html.mdx'
+
+For more interactivity.
+
+## 1. URL Components
+
+A button `hx-get`s a fragment endpoint by its URL and htmx swaps the response
+into the page. The message endpoint is a second routing class on the same
+`M05Routing`; its template is a bare `<h3>`.
+
+<iframe width="100%" style="min-height: 380px" scrolling="no" src="http://localhost:8080/m05/d01"></iframe>
+[Demo](http://localhost:8080/m05/d01)
+
+<D01Java/>
+<D01/>
+<Message/>
