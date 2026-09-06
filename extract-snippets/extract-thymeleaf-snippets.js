@@ -30,40 +30,40 @@ export function extractThymeleafSnippets() {
   fragment('layout', 'page');
   fragment('page-head', 'page');
 
-  // m01 — Simple Pages
+  // s01 — Simple Pages
   ['d01', 'd02', 'd03', 'd04', 'd05'].forEach(d => {
-    page('m01simplepages', d);
-    controller('m01simplepages', 'M01Controller', 'm01simplepages', d);
+    page('s01simplepages', d);
+    controller('s01simplepages', 'S01Controller', 's01simplepages', d);
   });
   fragment('helloworld');
   fragment('helloworldparams');
   fragment('helloworldcontent');
 
-  // m03 — Page Patterns  (d04 handler snippet covers d04p1 + d04p2 + addMpaModel)
+  // s03 — Page Patterns  (d04 handler snippet covers d04p1 + d04p2 + addMpaModel)
   ['d01', 'd02', 'd03'].forEach(d => {
-    page('m03pages', d);
-    controller('m03pages', 'M03Controller', 'm03pages', d);
+    page('s03pages', d);
+    controller('s03pages', 'S03Controller', 's03pages', d);
   });
-  page('m03pages', 'd04p1');
-  page('m03pages', 'd04p2');
-  controller('m03pages', 'M03Controller', 'm03pages', 'd04');
-  fragment('m03d04-layout', 'page');
+  page('s03pages', 'd04p1');
+  page('s03pages', 'd04p2');
+  controller('s03pages', 'S03Controller', 's03pages', 'd04');
+  fragment('s03d04-layout', 'page');
 
-  // m04 — UI Patterns
+  // s04 — UI Patterns
   ['d01', 'd02'].forEach(d => {
-    page('m04uipatterns', d);
-    controller('m04uipatterns', 'M04Controller', 'm04uipatterns', d);
+    page('s04uipatterns', d);
+    controller('s04uipatterns', 'S04Controller', 's04uipatterns', d);
   });
-  fragment('m04-parent');
-  fragment('m04-child');
-  fragment('m04-forwarder-first');
-  fragment('m04-forwarder-second');
+  fragment('s04-parent');
+  fragment('s04-child');
+  fragment('s04-forwarder-first');
+  fragment('s04-forwarder-second');
 
-  // m05 — htmx Patterns  (d01 handler snippet covers the page + the message endpoint)
-  page('m05htmxpatterns', 'd01');
-  controller('m05htmxpatterns', 'M05Controller', 'm05htmxpatterns', 'd01');
+  // s05 — htmx Patterns  (d01 handler snippet covers the page + the message endpoint)
+  page('s05htmxpatterns', 'd01');
+  controller('s05htmxpatterns', 'S05Controller', 's05htmxpatterns', 'd01');
   processSnippet(
-    `${templates}/m05htmxpatterns/d01-message.html`,
-    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="d01-message.html"`), outFile: `${outRoot}/pages/m05htmxpatterns/d01-message_html.mdx` }
+    `${templates}/s05htmxpatterns/d01-message.html`,
+    { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="d01-message.html"`), outFile: `${outRoot}/pages/s05htmxpatterns/d01-message_html.mdx` }
   );
 }
