@@ -8,12 +8,12 @@ import { Aside } from '@astrojs/starlight/components';
 import BulmaPage from '@snippets/hono/components/jsx/bulmapage_tsx.mdx'
 import Head from '@snippets/hono/components/html/head_ts.mdx'
 
-import M03D01TSX from '@snippets/hono/pages/m03/m03d01_tsx.mdx'
-import M03D02TSX from '@snippets/hono/pages/m03/m03d02_tsx.mdx'
-import M03D03TSX from '@snippets/hono/pages/m03/m03d03_tsx.mdx'
-import M03D04LayoutTSX from '@snippets/hono/pages/m03/m03d04mpalayout_tsx.mdx'
-import M03D04Page1TSX from '@snippets/hono/pages/m03/m03d04mpapage1_tsx.mdx'
-import M03D04Page2TSX from '@snippets/hono/pages/m03/m03d04mpapage2_tsx.mdx'
+import S03D01TSX from '@snippets/hono/pages/s03/s03d01_tsx.mdx'
+import S03D02TSX from '@snippets/hono/pages/s03/s03d02_tsx.mdx'
+import S03D03TSX from '@snippets/hono/pages/s03/s03d03_tsx.mdx'
+import S03D04LayoutTSX from '@snippets/hono/pages/s03/s03d04mpalayout_tsx.mdx'
+import S03D04Page1TSX from '@snippets/hono/pages/s03/s03d04mpapage1_tsx.mdx'
+import S03D04Page2TSX from '@snippets/hono/pages/s03/s03d04mpapage2_tsx.mdx'
 
 For Multi Page Applications (MPAs) or just a single page
 
@@ -21,10 +21,10 @@ For Multi Page Applications (MPAs) or just a single page
 
 Recommended for most use cases
 
-<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/m03/d01"></iframe>
-[Demo](http://localhost:3000/m03/d01)
+<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/s03/d01"></iframe>
+[Demo](http://localhost:3000/s03/d01)
 
-<M03D01TSX/>
+<S03D01TSX/>
 <BulmaPage/>
 <Head/>
 
@@ -32,17 +32,17 @@ Recommended for most use cases
 
 Content Page taking a parameter
 
-<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/m03/d02"></iframe>
-[Demo](http://localhost:3000/m03/d02)
+<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/s03/d02"></iframe>
+[Demo](http://localhost:3000/s03/d02)
 
-<M03D02TSX/>
+<S03D02TSX/>
 
 ## 3. Custom Page
 
 Custom Page taking a parameter. When the default content page does not fit.
 
-<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/m03/d03"></iframe>
-[Demo](http://localhost:3000/m03/d03)
+<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/s03/d03"></iframe>
+[Demo](http://localhost:3000/s03/d03)
 
 Recommended for special case pages of an application.
 This page-component does not use a layout component.
@@ -54,14 +54,14 @@ in the Content-Page Pattern.
 In the Content-Page Pattern the layout (including header, navigation and footer) is reusable.
 In this Custom-Page Pattern only the parts (header, navigation, footer) are reusable.
 
-<M03D03TSX/>
+<S03D03TSX/>
 
 ## 4. MPA Example
 
 Multi Page Application with a menu
 
-<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:3000/m03/d04p1"></iframe>
-[Demo](http://localhost:3000/m03/d04p1)
+<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:3000/s03/d04p1"></iframe>
+[Demo](http://localhost:3000/s03/d04p1)
 
 The pages of this application all use a common layout component (the template).
 
@@ -78,7 +78,7 @@ to show what is coming from the layout and what is coming from the component.
 Everything outside the border is coming from the layout template.
 Everything inside is comping from the injected component. 
 
-<M03D04LayoutTSX/>
-<M03D04Page1TSX/>
-<M03D04Page2TSX/>
+<S03D04LayoutTSX/>
+<S03D04Page1TSX/>
+<S03D04Page2TSX/>
 

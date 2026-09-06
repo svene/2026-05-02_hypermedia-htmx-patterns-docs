@@ -1,0 +1,22 @@
+---
+title: HTMX Patterns
+description: HTMX Patterns
+---
+
+import S05D01TSX from '@snippets/hono/pages/s05/s05d01_tsx.mdx'
+import S05D01MessageTSX from '@snippets/hono/components/s05/s05d01message_tsx.mdx'
+
+For more interactivity
+
+
+## 1. URL Components
+
+include components dynamically by their URL
+
+<iframe width="100%" style="min-height: 250px" scrolling="no" src="http://localhost:3000/s05/d01"></iframe>
+[Demo](http://localhost:3000/s05/d01)
+
+Message Component is dynamically included when the button is clicked using `hx-get`.
+
+<S05D01TSX/>
+<S05D01MessageTSX/>

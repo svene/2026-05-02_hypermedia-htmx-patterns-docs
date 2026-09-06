@@ -1,0 +1,73 @@
+---
+title: Using plain TS
+description: Simple Pages using plain TS
+---
+
+import HelloWorld from '@snippets/hono/components/html/helloworld_ts.mdx'
+import HelloWorldParams from '@snippets/hono/components/html/helloworldparams_ts.mdx'
+import HelloWorldContent from '@snippets/hono/components/html/helloworldcontent_ts.mdx'
+
+
+import S01D01TS from '@snippets/hono/pages/s01/s01d01_ts.mdx'
+import S01D02TS from '@snippets/hono/pages/s01/s01d02_ts.mdx'
+import S01D03TS from '@snippets/hono/pages/s01/s01d03_ts.mdx'
+import S01D04TS from '@snippets/hono/pages/s01/s01d04_ts.mdx'
+import S01D05TS from '@snippets/hono/pages/s01/s01d05_ts.mdx'
+
+For basic usecases. Needs an endpoint.
+
+
+## 1. Basic Page using a HTML template
+
+Made using a HTML template.
+
+<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/s01/d01"></iframe>
+[Demo](http://localhost:3000/s01/d01)
+
+
+Uses routing and ````c.html( html`...` )```` for the template.
+The HTML can be implemented inside the same ts file as the routing function.
+
+<S01D01TS/>
+
+## 2. Basic Page using a HTML component
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:3000/s01/d02"></iframe>
+[Demo](http://localhost:3000/s01/d02)
+
+<S01D02TS/>
+<HelloWorld/>
+
+## 3. Page and Component with Parameters
+
+When page and/or component need parameters
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:3000/s01/d03?greetee=You"></iframe>
+[Demo](http://localhost:3000/s01/d03?greetee=You)
+
+<S01D03TS/>
+<HelloWorldParams/>
+
+## 4. Content parameter
+
+Passed from page to component.
+
+When HTML needs to be passed into component
+
+<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:3000/s01/d04"></iframe>
+[Demo](http://localhost:3000/s01/d04)
+
+<S01D04TS/>
+<HelloWorldContent/>
+
+## 5. Nested components
+
+or: template in template
+
+When you need components in content-parameters
+
+<iframe width="100%" style="min-height: 400px" scrolling="no" src="http://localhost:3000/s01/d05"></iframe>
+[Demo](http://localhost:3000/s01/d05)
+
+<S01D05TS/>
+<HelloWorldContent/>

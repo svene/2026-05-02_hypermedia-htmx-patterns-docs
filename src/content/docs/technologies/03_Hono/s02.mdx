@@ -1,0 +1,79 @@
+---
+title: Using plain JSX
+description: Simple Pages using JSX
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+import HelloWorldJSX from '@snippets/hono/components/jsx/helloworldjsx_tsx.mdx'
+import HelloWorldParamsJSX from '@snippets/hono/components/jsx//helloworldparamsjsx_tsx.mdx'
+import HelloWorldContentJSX from '@snippets/hono/components/jsx//helloworldcontentjsx_tsx.mdx'
+import HelloWorldNestedJSX from '@snippets/hono/components/jsx//helloworldnestedjsx_tsx.mdx'
+
+import S02D01TS from '@snippets/hono/pages/s02/s02d01_tsx.mdx'
+import S02D02TS from '@snippets/hono/pages/s02/s02d02_tsx.mdx'
+import S02D03TS from '@snippets/hono/pages/s02/s02d03_tsx.mdx'
+import S02D04TS from '@snippets/hono/pages/s02/s02d04_tsx.mdx'
+import S02D05TS from '@snippets/hono/pages/s02/s02d05_tsx.mdx'
+
+Recommended for all non-trivial usecases. Needs an endpoint.
+
+## 1. Basic JSX Page
+
+made using JSX
+
+<iframe width="100%" style="min-height: 100px" scrolling="no" src="http://localhost:3000/s02/d01"></iframe>
+[Demo](http://localhost:3000/s02/d01)
+
+Uses routing and ````c.render(<JSX>)```` for the template.
+
+
+<S02D01TS/>
+
+
+## 2. JSX Component Page
+
+using a JSX component
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:3000/s02/d02"></iframe>
+[Demo](http://localhost:3000/s02/d02)
+
+<S02D02TS/>
+<HelloWorldJSX/>
+
+## 3. Page and Component
+
+with parameters.
+
+When page or component needs parameters
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:3000/s02/d03?greetee=You"></iframe>
+[Demo](http://localhost:3000/s02/d03?greetee=You)
+
+<S02D03TS/>
+<HelloWorldParamsJSX/>
+
+
+## 4. Content parameter
+
+passed from page to component
+
+When html needs to be passed into component
+
+<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:3000/s02/d04"></iframe>
+[Demo](http://localhost:3000/s02/d04)
+
+<S02D04TS/>
+<HelloWorldContentJSX/>
+
+## 5. Nested components
+
+or: template in template
+
+When you need components in content-parameters
+
+<iframe width="100%" style="min-height: 400px" scrolling="no" src="http://localhost:3000/s02/d05"></iframe>
+[Demo](http://localhost:3000/s02/d05)
+
+<S02D05TS/>
+<HelloWorldNestedJSX/>

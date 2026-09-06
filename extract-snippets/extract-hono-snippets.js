@@ -19,21 +19,21 @@ export function extractHonoSnippets() {
   htmlComponent('helloworldcontent');
   htmlComponent('head');
 
-  // M01:
-  const m01page = n => {
-    const m01 = `${srcRoot}/src/m01html`;
+  // S01:
+  const s01page = n => {
+    const s01 = `${srcRoot}/src/s01html`;
     processSnippet(
-      `${m01}/${n}.ts`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.ts"`), outFile: `${outRoot}/pages/m01/${n}_ts.mdx` }
+      `${s01}/${n}.ts`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.ts"`), outFile: `${outRoot}/pages/s01/${n}_ts.mdx` }
     );
   }
-  m01page('m01d01');
-  m01page('m01d02');
-  m01page('m01d03');
-  m01page('m01d04');
-  m01page('m01d05');
+  s01page('s01d01');
+  s01page('s01d02');
+  s01page('s01d03');
+  s01page('s01d04');
+  s01page('s01d05');
 
-  // M02:
+  // S02:
   const jsxComponent = n => {
     const jsxComponents = `${srcRoot}/src/c00jsxcomponents`;
     processSnippet(
@@ -48,75 +48,75 @@ export function extractHonoSnippets() {
   jsxComponent('helloworldnestedjsx');
   jsxComponent('bulmapage');
 
-  const m02page = n => {
-    const m02 = `${srcRoot}/src/m02jsx`;
+  const s02page = n => {
+    const s02 = `${srcRoot}/src/s02jsx`;
     processSnippet(
-      `${m02}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m02/${n}_tsx.mdx`}
+      `${s02}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/s02/${n}_tsx.mdx`}
     );
   }
-  m02page('m02d01');
-  m02page('m02d02');
-  m02page('m02d03');
-  m02page('m02d04');
-  m02page('m02d05');
+  s02page('s02d01');
+  s02page('s02d02');
+  s02page('s02d03');
+  s02page('s02d04');
+  s02page('s02d05');
 
-  // M03:
-  const m03page = n => {
-    const m03 = `${srcRoot}/src/m03pages`;
+  // S03:
+  const s03page = n => {
+    const s03 = `${srcRoot}/src/s03pages`;
     processSnippet(
-      `${m03}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m03/${n}_tsx.mdx`}
+      `${s03}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/s03/${n}_tsx.mdx`}
     );
   }
-  m03page('m03d01');
+  s03page('s03d01');
   
-  m03page('m03d02');
-  m03page('m03d03');
-  m03page('m03d04mpalayout');
-  m03page('m03d04mpapage1');
-  m03page('m03d04mpapage2');
+  s03page('s03d02');
+  s03page('s03d03');
+  s03page('s03d04mpalayout');
+  s03page('s03d04mpapage1');
+  s03page('s03d04mpapage2');
 
-  // M04:
-  const m04page = n => {
-    const m04 = `${srcRoot}/src/m04uipatterns`;
+  // S04:
+  const s04page = n => {
+    const s04 = `${srcRoot}/src/s04uipatterns`;
     processSnippet(
-      `${m04}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m04/${n}_tsx.mdx`}
+      `${s04}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/s04/${n}_tsx.mdx`}
     );
   }
-  const m04Component = n => {
-    const m04 = `${srcRoot}/src/m04uipatterns`;
+  const s04Component = n => {
+    const s04 = `${srcRoot}/src/s04uipatterns`;
     processSnippet(
-      `${m04}/${n}.tsx`,
-      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m04/${n}_tsx.mdx`}
-    );
-  }
-
-  m04page('m04d01');
-  m04Component('m04d01child');
-  m04Component('m04d01parent');
-  m04page('m04d02');
-  m04Component('m04d02first');
-  m04Component('m04d02second');
-
-  // M05:
-  const m05page = n => {
-    const m05 = `${srcRoot}/src/m05htmx`;
-    processSnippet(
-      `${m05}/${n}.tsx`,
-      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/m05/${n}_tsx.mdx`}
-    );
-  }
-  const m05Component = n => {
-    const m05 = `${srcRoot}/src/m05htmx`;
-    processSnippet(
-      `${m05}/${n}.tsx`,
-      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/components/m05/${n}_tsx.mdx`}
+      `${s04}/${n}.tsx`,
+      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/s04/${n}_tsx.mdx`}
     );
   }
 
-  m05page('m05d01');
-  m05Component('m05d01message');
+  s04page('s04d01');
+  s04Component('s04d01child');
+  s04Component('s04d01parent');
+  s04page('s04d02');
+  s04Component('s04d02first');
+  s04Component('s04d02second');
+
+  // S05:
+  const s05page = n => {
+    const s05 = `${srcRoot}/src/s05htmx`;
+    processSnippet(
+      `${s05}/${n}.tsx`,
+      { allowedTags: ['page'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/pages/s05/${n}_tsx.mdx`}
+    );
+  }
+  const s05Component = n => {
+    const s05 = `${srcRoot}/src/s05htmx`;
+    processSnippet(
+      `${s05}/${n}.tsx`,
+      { allowedTags: ['component'], transformFn: snippetToCodeBlock(`html title="${n}.tsx"`), outFile: `${outRoot}/components/s05/${n}_tsx.mdx`}
+    );
+  }
+
+  s05page('s05d01');
+  s05Component('s05d01message');
 
 }

@@ -1,0 +1,39 @@
+---
+title: UI Patterns
+description: UI Patterns
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+import S04D01TSX from '@snippets/hono/pages/s04/s04d01_tsx.mdx'
+import S04D01ParentTSX from '@snippets/hono/pages/s04/s04d01parent_tsx.mdx'
+import S04D01ChildTSX from '@snippets/hono/pages/s04/s04d01child_tsx.mdx'
+
+import S04D02TSX from '@snippets/hono/pages/s04/s04d02_tsx.mdx'
+import S04D02FirstTSX from '@snippets/hono/pages/s04/s04d02first_tsx.mdx'
+import S04D02SecondTSX from '@snippets/hono/pages/s04/s04d02second_tsx.mdx'
+
+For reusable UI parts and components
+
+## 1. Parent Child
+
+Use when:
+
+* a child component has a rather large HTML content
+* a parent component needs to customize a rather small part (or parts) of the child component
+
+<iframe width="100%" style="min-height: 250px" scrolling="no" src="http://localhost:3000/s04/d01"></iframe>
+[Demo](http://localhost:3000/s04/d01)
+
+<S04D01TSX/>
+<S04D01ParentTSX/>
+<S04D01ChildTSX/>
+
+## 2. Forwarder
+
+<iframe width="100%" style="min-height: 200px" scrolling="no" src="http://localhost:3000/s04/d02"></iframe>
+[Demo](http://localhost:3000/s04/d02)
+
+<S04D02TSX/>
+<S04D02FirstTSX/>
+<S04D02SecondTSX/>
