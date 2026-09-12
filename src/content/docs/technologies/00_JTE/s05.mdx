@@ -1,0 +1,24 @@
+---
+title: HTMX Patterns
+description: htmx with plain JTE
+---
+
+import D01Java from '@snippets/jte/pages/s05htmxpatterns/d01_java.mdx'
+import D01 from '@snippets/jte/pages/s05htmxpatterns/d01_jte.mdx'
+import Message from '@snippets/jte/pages/s05htmxpatterns/d01message_jte.mdx'
+
+For more interactivity.
+
+## 1. URL Components
+
+A button `hx-get`s a fragment endpoint by its URL and htmx swaps the response
+into the page. The fragment endpoint is just another handler on the same
+controller; its template is a bare `<h3>` with no document wrapper, so the swap
+stays clean.
+
+<iframe width="100%" style="min-height: 380px" scrolling="no" src="http://localhost:8080/s05/d01"></iframe>
+[Demo](http://localhost:8080/s05/d01)
+
+<D01Java/>
+<D01/>
+<Message/>

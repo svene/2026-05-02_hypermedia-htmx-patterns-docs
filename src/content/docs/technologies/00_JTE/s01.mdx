@@ -1,0 +1,82 @@
+---
+title: Simple Pages
+description: Simple Pages using plain JTE templates and fragments
+---
+
+import HelloWorld from '@snippets/jte/components/helloworld_jte.mdx'
+import HelloWorldParams from '@snippets/jte/components/helloworldparams_jte.mdx'
+import HelloWorldContent from '@snippets/jte/components/helloworldcontent_jte.mdx'
+
+import D01Java from '@snippets/jte/pages/s01simplepages/d01_java.mdx'
+import D01 from '@snippets/jte/pages/s01simplepages/d01_jte.mdx'
+import D02Java from '@snippets/jte/pages/s01simplepages/d02_java.mdx'
+import D02 from '@snippets/jte/pages/s01simplepages/d02_jte.mdx'
+import D03Java from '@snippets/jte/pages/s01simplepages/d03_java.mdx'
+import D03 from '@snippets/jte/pages/s01simplepages/d03_jte.mdx'
+import D04Java from '@snippets/jte/pages/s01simplepages/d04_java.mdx'
+import D04 from '@snippets/jte/pages/s01simplepages/d04_jte.mdx'
+import D05Java from '@snippets/jte/pages/s01simplepages/d05_java.mdx'
+import D05 from '@snippets/jte/pages/s01simplepages/d05_jte.mdx'
+
+For basic use cases. Needs a Spring controller that returns the template name —
+no View Components, just plain JTE.
+
+## 1. Basic Page from a template
+
+Made using a plain JTE template — no fragment.
+
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/s01/d01"></iframe>
+[Demo](http://localhost:8080/s01/d01)
+
+<D01Java/>
+<D01/>
+
+## 2. Page including a fragment
+
+`@template.fragments.helloworld()` pulls in another JTE template — JTE's own
+composition mechanism, no View-Component class needed.
+
+<iframe width="100%" style="min-height: 180px" scrolling="no" src="http://localhost:8080/s01/d02"></iframe>
+[Demo](http://localhost:8080/s01/d02)
+
+<D02Java/>
+<D02/>
+<HelloWorld/>
+
+## 3. Page and fragment with parameters
+
+The fragment declares `@param String greeting, String greetee`; the page passes
+`greeting` literally and `greetee` from the `?greetee=` request parameter (via
+the controller).
+
+<iframe width="100%" style="min-height: 180px" scrolling="no" src="http://localhost:8080/s01/d03?greetee=You"></iframe>
+[Demo](http://localhost:8080/s01/d03?greetee=You)
+
+<D03Java/>
+<D03/>
+<HelloWorldParams/>
+
+## 4. Content / slot parameter
+
+When HTML needs to be passed into a component. The page passes a chunk of
+markup as a `gg.jte.Content` parameter, written as a JTE content block; the
+component decides where it goes just by referencing that parameter.
+
+<iframe width="100%" style="min-height: 300px" scrolling="no" src="http://localhost:8080/s01/d04"></iframe>
+[Demo](http://localhost:8080/s01/d04)
+
+<D04Java/>
+<D04/>
+<HelloWorldContent/>
+
+## 5. Nested fragments
+
+Template in template — the outer `Content` block itself calls the same
+component again.
+
+<iframe width="100%" style="min-height: 390px" scrolling="no" src="http://localhost:8080/s01/d05"></iframe>
+[Demo](http://localhost:8080/s01/d05)
+
+<D05Java/>
+<D05/>
+<HelloWorldContent/>

@@ -1,0 +1,44 @@
+---
+title: UI Patterns
+description: Reusable plain JTE fragments
+---
+
+import D01Java from '@snippets/jte/pages/s04uipatterns/d01_java.mdx'
+import D01 from '@snippets/jte/pages/s04uipatterns/d01_jte.mdx'
+import Parent from '@snippets/jte/components/s04parent_jte.mdx'
+import Child from '@snippets/jte/components/s04child_jte.mdx'
+
+import D02Java from '@snippets/jte/pages/s04uipatterns/d02_java.mdx'
+import D02 from '@snippets/jte/pages/s04uipatterns/d02_jte.mdx'
+import First from '@snippets/jte/components/s04forwarderfirst_jte.mdx'
+import Second from '@snippets/jte/components/s04forwardersecond_jte.mdx'
+
+For reusable UI parts and components.
+
+## 1. Parent Child
+
+The parent fragment builds a chunk of slot markup (interpolating its own
+`greeting` parameter) and passes it **down** into the child fragment as a
+`gg.jte.Content` parameter. Use when a child owns a large chunk of HTML and the
+parent only customises a small part of it.
+
+<iframe width="100%" style="min-height: 235px" scrolling="no" src="http://localhost:8080/s04/d01"></iframe>
+[Demo](http://localhost:8080/s04/d01)
+
+<D01Java/>
+<D01/>
+<Parent/>
+<Child/>
+
+## 2. Forwarder
+
+A fragment that, from its parameter, decides whether to render itself or
+delegate to another fragment, using JTE's native `@if`/`@else`.
+
+<iframe width="100%" style="min-height: 225px" scrolling="no" src="http://localhost:8080/s04/d02"></iframe>
+[Demo](http://localhost:8080/s04/d02)
+
+<D02Java/>
+<D02/>
+<First/>
+<Second/>

@@ -1,0 +1,74 @@
+---
+title: Page Patterns
+description: Assembling a whole page with plain JTE
+---
+
+import Layout from '@snippets/jte/components/layout_jte.mdx'
+import PageHead from '@snippets/jte/components/pagehead_jte.mdx'
+import MpaLayout from '@snippets/jte/components/s03d04mpalayout_jte.mdx'
+
+import D01Java from '@snippets/jte/pages/s03pages/d01_java.mdx'
+import D01 from '@snippets/jte/pages/s03pages/d01_jte.mdx'
+import D02Java from '@snippets/jte/pages/s03pages/d02_java.mdx'
+import D02 from '@snippets/jte/pages/s03pages/d02_jte.mdx'
+import D03Java from '@snippets/jte/pages/s03pages/d03_java.mdx'
+import D03 from '@snippets/jte/pages/s03pages/d03_jte.mdx'
+import D04Java from '@snippets/jte/pages/s03pages/d04_java.mdx'
+import D04P1 from '@snippets/jte/pages/s03pages/d04p1_jte.mdx'
+import D04P2 from '@snippets/jte/pages/s03pages/d04p2_jte.mdx'
+
+How to assemble a whole page — for Multi Page Applications or a single page.
+This is also where the project's original two hand-written patterns live now:
+*Content Page* (d01) is the old Template-Injection demo, *Custom Page* (d03)
+is the old Template-Inclusion demo.
+
+## 1. Content Page
+
+A reusable `layout` template supplies `<html>`, `<head>` and the container; the
+page provides only the content it should wrap, passed as a `gg.jte.Content`
+parameter to `@template.fragments.layout(...)`.
+
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/s03/d01"></iframe>
+[Demo](http://localhost:8080/s03/d01)
+
+<D01Java/>
+<D01/>
+<Layout/>
+<PageHead/>
+
+## 2. Content Page taking a parameter
+
+Same layout, but the page reads a `?greeting=` request parameter.
+
+<iframe width="100%" style="min-height: 140px" scrolling="no" src="http://localhost:8080/s03/d02?greeting=Hey%20You!"></iframe>
+[Demo](http://localhost:8080/s03/d02?greeting=Hey%20You!)
+
+<D02Java/>
+<D02/>
+
+## 3. Custom Page taking a parameter
+
+When the opinionated content page does not fit: this page builds the whole
+document itself and only reuses the small `pagehead` fragment via a plain
+`@template` call (no `Content` parameter). JTE does not allow unclosed tags, so
+`pagehead` cannot itself open `<body>` for this page to close — the enclosing
+tag lives in the consumer instead.
+
+<iframe width="100%" style="min-height: 340px" scrolling="no" src="http://localhost:8080/s03/d03?greeting=Hey%20You!"></iframe>
+[Demo](http://localhost:8080/s03/d03?greeting=Hey%20You!)
+
+<D03Java/>
+<D03/>
+
+## 4. MPA Example
+
+Two pages (`d04p1`, `d04p2`) share one nav layout that highlights the current
+page from a `selectedMenu` parameter.
+
+<iframe width="100%" style="min-height: 620px" scrolling="no" src="http://localhost:8080/s03/d04p1"></iframe>
+[Demo](http://localhost:8080/s03/d04p1)
+
+<D04Java/>
+<D04P1/>
+<D04P2/>
+<MpaLayout/>
