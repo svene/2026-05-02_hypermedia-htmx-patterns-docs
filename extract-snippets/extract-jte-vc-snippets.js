@@ -2,7 +2,7 @@ import { processSnippet } from './extract-snippet.js';
 import { snippetToCodeBlock } from './extract-functions.js';
 
 export function extractJteVcSnippets() {
-  const srcRoot = '../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx';
+  const srcRoot = '../../2025/2025-08-23_hypermedia-patterns-jte-vc-htmx';
   const outRoot = 'generated/snippets';
 
   // S01:

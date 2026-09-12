@@ -13,7 +13,7 @@ export default defineConfig({
       		alias: {
 				'@components': path.resolve(__dirname, './src/components'),
 				'@snippets': path.resolve(__dirname, './generated/snippets'),
-        		'@app': path.resolve('../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx'),
+        		'@app': path.resolve('../../2025/2025-08-23_hypermedia-patterns-jte-vc-htmx'),
       	},
     },
   },

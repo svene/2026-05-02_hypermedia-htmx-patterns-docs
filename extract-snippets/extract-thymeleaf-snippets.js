@@ -2,9 +2,9 @@ import { processSnippet } from './extract-snippet.js';
 import { snippetToCodeBlock } from './extract-functions.js';
 
 export function extractThymeleafSnippets() {
-  const srcRoot = '../../2025/2025-08-23_ssfe-patterns-thymeleaf-htmx';
+  const srcRoot = '../../2025/2025-08-23_hypermedia-patterns-thymeleaf-htmx';
   const templates = `${srcRoot}/src/main/resources/templates`;
-  const java = `${srcRoot}/src/main/java/org/svenehrke/demo/ssfepatterns`;
+  const java = `${srcRoot}/src/main/java/org/svenehrke/demo/hypermediapatterns`;
   const outRoot = 'generated/snippets/thymeleaf';
 
   // a demo page template (module dir + name); tag defaults to "page"

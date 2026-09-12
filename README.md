@@ -1,4 +1,4 @@
-# Documentation for 2025-08-23_ssfe-patterns-jte-vc-htmx
+# Documentation for 2025-08-23_hypermedia-patterns-jte-vc-htmx
 
 An [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/)
 site that documents the hypermedia / htmx variant projects. The prose is written
@@ -33,7 +33,7 @@ demos to load; the snippets and prose render fine without it.
 1. Edit a variant's source. The source roots are the `srcRoot` paths in
    `extract-snippets/extract-jte-vc-snippets.js` and
    `extract-snippets/extract-hono-snippets.js` (currently
-   `../../2025/2025-08-23_ssfe-patterns-jte-vc-htmx` and
+   `../../2025/2025-08-23_hypermedia-patterns-jte-vc-htmx` and
    `../../2025/2025-12-27_ssfe-patterns-hono-htmx`). Keep the
    `docs:start <tag>` / `docs:end <tag>` markers around the region you want shown.
 2. Re-run `npm run extract-snippets`. This rewrites `generated/snippets/**`
