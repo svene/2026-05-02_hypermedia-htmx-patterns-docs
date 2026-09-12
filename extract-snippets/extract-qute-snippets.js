@@ -2,9 +2,9 @@ import { processSnippet } from './extract-snippet.js';
 import { snippetToCodeBlock } from './extract-functions.js';
 
 export function extractQuteSnippets() {
-  const srcRoot = '../../2025/2025-12-21_ssfe-patterns-quarkus-qute-htmx';
-  const java = `${srcRoot}/src/main/java/dev/svenehrke/demo/ssfepatterns`;
-  const templates = `${srcRoot}/src/main/resources/templates/dev/svenehrke/demo/ssfepatterns`;
+  const srcRoot = '../../2025/2025-12-21_hypermedia-patterns-quarkus-qute-htmx';
+  const java = `${srcRoot}/src/main/java/dev/svenehrke/demo/hypermediapatterns`;
+  const templates = `${srcRoot}/src/main/resources/templates/dev/svenehrke/demo/hypermediapatterns`;
   const outRoot = 'generated/snippets/qute';
 
   const tpl = (dir, n, out, tag = 'page') => processSnippet(
