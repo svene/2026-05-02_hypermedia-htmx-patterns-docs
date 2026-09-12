@@ -1,14 +1,14 @@
-# Documentation for 2025-08-23_hypermedia-patterns-jte-vc-htmx
+# Hypermedia Patterns — Documentation
 
 An [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/)
 site that documents the hypermedia / htmx variant projects. The prose is written
 by hand; every **code sample is extracted from the real variant source** via
 `docs:start` / `docs:end` tag markers, so the docs cannot drift from the code.
 
-Despite the folder name it is not limited to the JTE-VC variant: it currently
-also covers the Hono variant, and the sidebar is scaffolded for Thymeleaf, the
-JSX / Spring-Hono line and the two Graal-JSX demos. The intent is to grow
-snippets from more variants over time.
+It currently covers four variants — JTE-VC, Thymeleaf, Hono and Qute — and the
+sidebar is scaffolded for the Spring/Quarkus GraalVM-Hono demos and the two
+browser-rendering demos as future additions. The intent is to grow snippets
+from more variants over time.
 
 ## Usage
 
@@ -31,10 +31,9 @@ demos to load; the snippets and prose render fine without it.
 ## Dev cycle
 
 1. Edit a variant's source. The source roots are the `srcRoot` paths in
-   `extract-snippets/extract-jte-vc-snippets.js` and
-   `extract-snippets/extract-hono-snippets.js` (currently
-   `../../2025/2025-08-23_hypermedia-patterns-jte-vc-htmx` and
-   `../../2025/2025-12-27_hypermedia-patterns-hono-htmx`). Keep the
+   `extract-snippets/extract-jte-vc-snippets.js`, `extract-thymeleaf-snippets.js`,
+   `extract-hono-snippets.js` and `extract-qute-snippets.js` — each points at
+   the matching sibling project under `../../2025/`. Keep the
    `docs:start <tag>` / `docs:end <tag>` markers around the region you want shown.
 2. Re-run `npm run extract-snippets`. This rewrites `generated/snippets/**`
    (git-ignored).
