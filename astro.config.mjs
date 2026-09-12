@@ -19,7 +19,7 @@ export default defineConfig({
   },
 	integrations: [
 		starlight({
-			title: 'Server Side Frontend Patterns',
+			title: 'Hypermedia Patterns',
 			customCss: [
         		'./src/styles/custom.css',
       		],
