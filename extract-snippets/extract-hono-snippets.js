@@ -2,7 +2,7 @@ import { processSnippet } from './extract-snippet.js';
 import { snippetToCodeBlock } from './extract-functions.js';
 
 export function extractHonoSnippets() {
-  const srcRoot = '../../2025/2025-12-27_ssfe-patterns-hono-htmx';
+  const srcRoot = '../../2025/2025-12-27_hypermedia-patterns-hono-htmx';
   const outRoot = 'generated/snippets/hono';
 
   

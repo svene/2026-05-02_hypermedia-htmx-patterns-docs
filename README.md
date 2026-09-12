@@ -34,7 +34,7 @@ demos to load; the snippets and prose render fine without it.
    `extract-snippets/extract-jte-vc-snippets.js` and
    `extract-snippets/extract-hono-snippets.js` (currently
    `../../2025/2025-08-23_hypermedia-patterns-jte-vc-htmx` and
-   `../../2025/2025-12-27_ssfe-patterns-hono-htmx`). Keep the
+   `../../2025/2025-12-27_hypermedia-patterns-hono-htmx`). Keep the
    `docs:start <tag>` / `docs:end <tag>` markers around the region you want shown.
 2. Re-run `npm run extract-snippets`. This rewrites `generated/snippets/**`
    (git-ignored).
